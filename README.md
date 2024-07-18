@@ -2,22 +2,23 @@
 
 ![Diagrama Mermaid](/assets/image/introducaojs.svg)
 
->> ### O que é JavaScript?
-> JavaScript é uma linguagem de programação de alto nível, interpretada e orientada a objetos. É uma das principais tecnologias da web, juntamente com HTML e CSS. É amplamente utilizada para criar páginas web interativas, aplicativos web e servidores. JavaScript permite a manipulação dinâmica de conteúdo, controle de multimídia, animação de gráficos e muito mais.
-
->> ### História do JavaScript
-> avaScript foi criado por Brendan Eich em 1995 enquanto trabalhava na Netscape. Desenvolvida em apenas dez dias, a linguagem foi inicialmente chamada de Mocha, depois LiveScript, e finalmente JavaScript. Seu objetivo era adicionar interatividade a páginas web. Em 1996, a Microsoft lançou o JScript, e para garantir a compatibilidade entre navegadores, JavaScript foi padronizado pela Ecma International como ECMAScript em 1997.\
-Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento web, com o surgimento de bibliotecas e frameworks como [jQuery](https://jquery.com/), [Angular](https://angular.io/), [React](https://reactjs.org/), e [Vue.js](https://vuejs.org/), além da plataforma [Node.js](https://nodejs.org/), que permite a execução no lado do servidor. Hoje, JavaScript é amplamente utilizado e continua a evoluir, permanecendo crucial para experiências web dinâmicas.
-
->> ### Versões do JavaScript
-> JavaScript, inventado por Brendan Eich, alcançou o status de um padrão ECMA em 1997 e adotou o nome oficial ECMAScript. Esta linguagem evoluiu através de várias versões, nomeadamente [ES1](https://262.ecma-international.org/1.0/), [ES2](https://262.ecma-international.org/2.0/), [ES3](https://262.ecma-international.org/3.0/), [ES5](https://262.ecma-international.org/5.1/), e a transformadora [ES6](https://262.ecma-international.org/6.0/). Estas atualizações desempenharam um papel crucial na melhoria e padronização do JavaScript, tornando-o amplamente utilizado e valioso no campo em constante mudança do desenvolvimento web.
-
->> ### Como executar JavaScript?
+>> ## O que é JavaScript?
+>> JavaScript é uma linguagem de programação de alto nível, interpretada e orientada a objetos. É uma das principais tecnologias da web, juntamente com HTML e CSS. É amplamente utilizada para criar páginas web interativas, aplicativos web e servidores. JavaScript permite a manipulação dinâmica de conteúdo, controle de multimídia, animação de gráficos e muito mais.
 >
+>> 
+>> ## História do JavaScript
+>> avaScript foi criado por Brendan Eich em 1995 enquanto trabalhava na Netscape. Desenvolvida em apenas dez dias, a linguagem foi inicialmente chamada de Mocha, depois LiveScript, e finalmente JavaScript. Seu objetivo era adicionar interatividade a páginas web. Em 1996, a Microsoft lançou o JScript, e para garantir a compatibilidade entre navegadores, JavaScript foi padronizado pela Ecma International como ECMAScript em 1997.\
+Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento web, com o surgimento de bibliotecas e frameworks como [jQuery](https://jquery.com/), [Angular](https://angular.io/), [React](https://reactjs.org/), e [Vue.js](https://vuejs.org/), além da plataforma [Node.js](https://nodejs.org/), que permite a execução no lado do servidor. Hoje, JavaScript é amplamente utilizado e continua a evoluir, permanecendo crucial para experiências web dinâmicas.
+>
+>> ## Versões do JavaScript
+>> JavaScript, inventado por Brendan Eich, alcançou o status de um padrão ECMA em 1997 e adotou o nome oficial ECMAScript. Esta linguagem evoluiu através de várias versões, nomeadamente [ES1](https://262.ecma-international.org/1.0/), [ES2](https://262.ecma-international.org/2.0/), [ES3](https://262.ecma-international.org/3.0/), [ES5](https://262.ecma-international.org/5.1/), e a transformadora [ES6](https://262.ecma-international.org/6.0/). Estas atualizações desempenharam um papel crucial na melhoria e padronização do JavaScript, tornando-o amplamente utilizado e valioso no campo em constante mudança do desenvolvimento web.
+>
+>> ## Como executar JavaScript?
+>>
 >>### # Executar JavaScript no Navegador
 >>Os navegadores modernos possuem consoles de desenvolvedor onde você pode executar código JavaScript diretamente.
 >>
->> Passos:
+>> #### Passos:
 >> 1. Abra seu navegador (por exemplo, Chrome, Firefox, Edge).
 >> 2. Pressione `F12` ou `Ctrl+Shift+I` (Windows/Linux) ou `Cmd+Opt+I` (Mac) para abrir as ferramentas de desenvolvedor.
 >> 3. Vá para a aba "Console".
@@ -27,7 +28,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> Exemplo:
 >>  console.log("Hello, World!");
 >> ```
->
+>>
 >>### # Executar JavaScript em um Arquivo HTML
 >>Você pode inserir JavaScript diretamente em um arquivo HTML.
 >> 
@@ -55,7 +56,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> </html>
 >> ```
 >> Abra este arquivo HTML no navegador e o JavaScript será executado automaticamente.
->
+>>
 >> ### # Executar JavaScript com Node.js
 >> Se você deseja executar JavaScript fora de um navegador, você pode usar Node.js.
 >> 
@@ -81,7 +82,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 ![Diagrama Mermaid](/assets/image/variaveis.svg)
 
 
->> ### Declarações de Variáveis
+>> ## Declarações de Variáveis
 > 
 >> ### # `Var`
 >> **Declaração:**\
@@ -138,7 +139,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> console.log(nome); // Erro: nome não está definido
 >> ```
 >> 
->>### Hoisting
+>> ### Hoisting
 >> Hoisting de `var` com declaração e inicialização
 >> - **Inicialização com `undefined`**: A variável `var` é inicializada automaticamente com `undefined` durante o hoisting, mesmo que seu valor seja atribuído posteriormente no código.
 >> 
@@ -353,6 +354,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> example();
 >> ```
 > <br>
+> <br>
 >
 >> ### Regras para Nomear Variáveis
 >> Ao programar em JavaScript, é importante seguir regras específicas para nomear variáveis, garantindo clareza e evitando 
@@ -424,8 +426,220 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> var minhaIdade; // Correto: primeira letra minúscula, iniciais de palavras subsequentes em maiúscula
 >> var nomeCompletoDoUsuario; // Exemplo mais descritivo usando camelCase
 >> ```
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - var, let, const](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Grammar_and_types)
 <hr>
 <h3 align="center"> Não esqueça de sempre praticar; você não aprende a andar de bicicleta apenas olhando... essa frase não é sobre bicicleta.</h3>
 <hr>
 
 ![Diagrama Mermaid](/assets/image/tipoDeDados.svg)
+
+>> ## Tipos de Dados Primitivos
+>> Em JavaScript, os dados primitivos são os blocos de construção fundamentais que não são objetos e não possuem métodos ou propriedades. Cada tipo primitivo representa um único valor básico e imutável. A seguir, vamos explorar cada um dos sete tipos de dados primitivos em JavaScript, juntamente com exemplos práticos para ilustrar suas características e usos.
+> 
+>> ### # String
+>> O tipo `string` é utilizado para representar sequências de caracteres. Strings podem conter letras, números, símbolos, espaços e outros caracteres.
+>> - Strings são criadas usando aspas simples (`'`), aspas duplas (`"`), ou crases (`` ` ``) para strings de template.
+>> 
+>> #### Exemplos:
+>> ```javascript
+>> let nome = "Henrique";
+>> let corFavorita = 'Vermelho';
+>> let frase = `Meu nome é ${nome} e minha cor favorita é ${corFavorita}`;
+>> ```
+>> - `nome` e `corFavorita` são strings simples.
+>> - `frase` é uma string de template que permite interpolação de expressões.
+>> 
+>> #### # Diferença entre Aspas Simples, Duplas e Crases:
+>> **Aspas Simples (`'`) e Duplas (`"`)**:\
+>> Utilizadas para strings simples.\
+>> Não permitem interpolação de variáveis.\
+>> Necessário escape aspas simples e duplas dentro da string (`\'`, `\"`).
+>> ```javascript
+>> let saudacaoSimples = 'Olá, mundo!';
+>> let saudacaoDuplas = "Olá, mundo!";
+>> 
+>> // Escaping aspas dentro da string
+>> let fraseSimples = 'Ele disse: "Olá!"'; // Aspas duplas dentro de aspas simples
+>> let fraseDuplas = "Ele disse: 'Olá!'"; // Aspas simples dentro de aspas duplas
+>> let exemploEscapingSimples = 'Isso é uma aspa simples: \'';
+>> let exemploEscapingDuplas = "Isso é uma aspa dupla: \"";
+>> ```
+>> **Crases (`` ` ``)**:\
+>> Utilizadas para **template literals**.\
+>> Permitem interpolação de variáveis e expressões (`${}`).\
+>> Suportam strings multilinhas.
+>> ```javascript
+>> let nome = "Rick";
+>> let saudacao = `Olá, ${nome}!`;
+>> let multiline = `Esta é uma
+>> string com
+>> múltiplas linhas.`;
+>> ```
+>> #### # Comparação
+>> **Aspas Simples e Duplas**:\
+>> Uso intercambiável, ideal para strings simples.\
+>> Não permitem interpolação direta.
+>> 
+>> **Crases**:\
+>> Ideal para strings com interpolação de variáveis e multilinhas.\
+>> Mais flexíveis e poderosas.
+>> #### Exemplo Comparativo:
+>> ```javascript
+>> let nome = 'Henrique';
+>> let saudacaoSimples = 'Olá, ' + nome + '!'; // usando concatenação
+>> let saudacaoDupla = "Olá, " + nome + "!"; // usando concatenação
+>> let saudacaoTemplate = `Olá, ${nome}!`;
+>> ```
+>
+> <br>
+>
+>> ### # Number
+>> O tipo `number` representa valores numéricos. JavaScript não diferencia entre inteiros e números de ponto flutuante; ambos são do tipo `number`.
+>> - Pode representar números entre -2^53 + 1 e 2^53 - 1.
+>> - Suporta notação exponencial para números grandes ou pequenos.
+>> #### Exemplos:
+>> ```javascript
+>> let inteiro = 42;
+>> let decimal = 3.14159;
+>> let negativo = -7;
+>> let grande = 1.23e5; // 1.23 * 10^5 = 123000
+>> ```
+>> - `inteiro`, `decimal`, `negativo` e `grande` são todos do tipo `number`.
+>
+> <br>
+>
+>> ### # Bigint
+>> O tipo `bigint` é usado para representar inteiros que estão fora do limite seguro dos números do tipo `number`.
+>> - Criado adicionando um `n` no final do número.
+>> #### Exemplos:
+>> ```javascript
+>> let muitoGrande = 1234567890123456789012345678901234567890n;
+>> let outroGrande = BigInt("9876543210987654321098765432109876543210");
+>> ```
+>> - `muitoGrande` e `outroGrande` são do tipo `bigint`.
+>
+> <br>
+>
+>> ### # Boolean
+>> O tipo `boolean` representa um valor lógico que pode ser `true` ou `false`.
+>> - Utilizado em condicionais e loops para controlar o fluxo do programa.
+>> #### Exemplos:
+>> ```javascript
+>> let estaChovendo = true;
+>> let estaEnsolarado = false;
+>> ```
+>> - `estaChovendo` é `true` e `estaEnsolarado` é `false`.
+>
+> <br>
+> 
+>> ### # Undefined
+>> O tipo `undefined` indica que uma variável foi declarada, mas ainda não foi atribuída um valor.
+>> - O valor padrão para variáveis não inicializadas.
+>> #### Exemplos:
+>> ```javascript
+>> let valorIndefinido; // Declarando uma variavel sem valor.
+>> console.log(valorIndefinido); // undefined
+>> 
+>> function naoRetornaNada() {}
+>> console.log(naoRetornaNada()); // undefined
+>> ```
+>> - `valorIndefinido` é `undefined` porque não foi inicializado.
+>> - A função `naoRetornaNada` retorna `undefined` porque não possui uma instrução `return`.
+>> >OBS: Vamos aprender sobre funções mais adiante.
+>
+> <br>
+> 
+>> ### # Symbol
+>> O tipo `symbol` é utilizado para criar valores únicos e imutáveis, comumente usados como identificadores de propriedades de objetos para evitar conflitos.
+>> - Criado usando a função `Symbol`.
+>> - Cada símbolo é único, mesmo se tiverem a mesma descrição.
+>> #### Exemplos:
+>> ```javascript
+>> let simbolo1 = Symbol('descricao');
+>> let simbolo2 = Symbol('descricao');
+>> console.log(simbolo1 === simbolo2); // false
+>> ```
+>> - `simbolo1` e `simbolo2` são símbolos diferentes, mesmo com a mesma descrição.
+>> #### Aplicação prática:
+>> ```javascript
+>> let usuario = {
+>>   nome: "Henrique",
+>>   [Symbol('id')]: 123 // 'id' é um identificador único que não conflita com outras propriedades
+>> };
+>> ```
+>
+> <br>
+>
+>> ### # Null
+>> O tipo `null` representa a ausência intencional de qualquer valor de objeto.
+>> - É um valor que você pode atribuir a uma variável para indicar que ela não tem valor.
+>> #### Exemplos:
+>> ```javascript
+>> let valorNulo = null;
+>> console.log(valorNulo); // null
+>> 
+>> let objeto = { chave: null };
+>> console.log(objeto.chave); // null
+>> ```
+>> - `valorNulo` é `null`.
+>> - `objeto.chave` é `null` indicando a ausência de um valor.
+>
+> <br>
+>
+>> ### # Recapitulando:
+>> - **string**: Texto, como `"Olá, mundo!"` ou `'Henrique'`
+>> - **number**: Números, como `42` ou `3.14`
+>> - **bigint**: Números inteiros muito grandes, como `1234567890123456789012345678901234567890n`
+>> - **boolean**: Valores lógicos `true` ou `false`
+>> - **undefined**: Variável declarada, mas não inicializada, como `let valorIndefinido;`
+>> - **symbol**: Valores únicos e imutáveis, como `Symbol('descricao')`
+>> - **null**: Ausência intencional de valor, como `let valorNulo = null;`
+>> 
+>> Esses tipos de dados são fundamentais para manipular informações em JavaScript de forma eficiente e eficaz, e entender suas características e comportamentos é essencial para escrever códigos robustos e bem-estruturados.
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - Tipo de Dados](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Data_structures).
+> <br>
+> <br>
+>
+>> ## Operador TypeOf
+>> O operador `typeof` em JavaScript é usado para determinar o tipo de dado de uma variável ou expressão. Ele retorna uma string indicando o tipo do valor fornecido. 
+>> #### Aqui estão alguns exemplos de como ele funciona:
+>> **Tipos Primitivos:**
+>> ```javascript
+>> typeof 42;  // "number"
+>> typeof "Hello";  // "string"
+>> typeof true;  // "boolean"
+>> typeof undefined;  // "undefined"
+>> typeof null;  // "object" (nota: isso é um erro histórico em JavaScript)
+>> ```
+>> **Objetos e Funções:**
+>> ```javascript
+>> typeof { key: 'value' };  // "object"
+>> typeof [1, 2, 3];  // "object"
+>> typeof function() {};  // "function"
+>> ```
+>> **Operadores Unários:**
+>> ```javascript
+>> typeof typeof 42;  // "string", pois typeof 42 retorna "number"
+>> ```
+>> ### Comportamento Importante:
+>> - **Null:** Embora `typeof null` retorne `"object"`, isso é um erro histórico em JavaScript e não reflete o verdadeiro tipo de dado `null`.
+>> - **Funções:** O `typeof` pode identificar funções como `"function"`, o que é útil para diferenciação em estruturas de controle ou manipulação de objetos.
+>> ### Uso Prático:
+>> O `typeof` é útil em situações onde você precisa verificar dinamicamente o tipo de dado antes de realizar operações específicas que variam de acordo com o tipo.
+>> #### Por exemplo:
+>> ```javascript
+>> function printType(value) {
+>>     console.log(typeof value);
+>> }
+>> 
+>> printType(42);  // "number"
+>> printType("Hello");  // "string"
+>> printType({ key: 'value' });  // "object"
+>> ```
+>> Isso permite que seu código tome decisões com base no tipo de dado que está manipulando, melhorando a robustez e a flexibilidade das funções.
+>> > ##### OBS: Você pode aprender mais lendo esse artigo:[MDN - Operador typeOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+> <br>
+> <br>
+>
+>> ## Objetos
+>> > # Loading...
