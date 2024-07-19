@@ -651,7 +651,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> ```javascript
 >> const pessoa = {
 >>   primeiroNome: "Henrique",
->>   segundoNome: "Lusti",
+>>   segundoNome: "Lustri",
 >>   idade: 22,
 >>   altura: 175
 >> };
@@ -674,7 +674,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> ```javascript
 >>  const pessoa = {
 >>   primeiroNome: "Henrique",
->>   segundoNome: "Lusti",
+>>   segundoNome: "Lustri",
 >>   idade: 22,
 >>   altura: 175
 >> };
@@ -686,7 +686,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> ```javascript
 >>  const pessoa = {
 >>   primeiroNome: "Henrique",
->>   segundoNome: "Lusti",
+>>   segundoNome: "Lustri",
 >>   idade: 22,
 >>   altura: 175
 >> };
