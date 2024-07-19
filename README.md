@@ -7,7 +7,7 @@
 >
 >> 
 >> ## História do JavaScript
->> JavaScript foi criado por Brendan Eich em 1995 enquanto trabalhava na Netscape. Desenvolvida em apenas dez dias, a linguagem foi inicialmente chamada de Mocha, depois LiveScript, e finalmente JavaScript. Seu objetivo era adicionar interatividade a páginas web. Em 1996, a Microsoft lançou o JScript, e para garantir a compatibilidade entre navegadores, JavaScript foi padronizado pela Ecma International como ECMAScript em 1997.\
+>> avaScript foi criado por Brendan Eich em 1995 enquanto trabalhava na Netscape. Desenvolvida em apenas dez dias, a linguagem foi inicialmente chamada de Mocha, depois LiveScript, e finalmente JavaScript. Seu objetivo era adicionar interatividade a páginas web. Em 1996, a Microsoft lançou o JScript, e para garantir a compatibilidade entre navegadores, JavaScript foi padronizado pela Ecma International como ECMAScript em 1997.\
 Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento web, com o surgimento de bibliotecas e frameworks como [jQuery](https://jquery.com/), [Angular](https://angular.io/), [React](https://reactjs.org/), e [Vue.js](https://vuejs.org/), além da plataforma [Node.js](https://nodejs.org/), que permite a execução no lado do servidor. Hoje, JavaScript é amplamente utilizado e continua a evoluir, permanecendo crucial para experiências web dinâmicas.
 >
 >> ## Versões do JavaScript
@@ -427,6 +427,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> var nomeCompletoDoUsuario; // Exemplo mais descritivo usando camelCase
 >> ```
 >> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - var, let, const](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Grammar_and_types)
+<br>
 <hr>
 <h3 align="center"> Não esqueça de sempre praticar; você não aprende a andar de bicicleta apenas olhando... essa frase não é sobre bicicleta.</h3>
 <hr>
@@ -642,4 +643,395 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 > <br>
 >
 >> ## Objetos
->> > # Loading...
+>> Objetos em JavaScript são coleções de propriedades, e uma propriedade é uma associação entre um nome (ou chave) e um valor. Um objeto pode ser visto como uma coleção de pares chave-valor. Aqui está um resumo de como definir e usar objetos em JavaScript, com base na referência fornecida do W3Schools.
+>> 
+>> ### # Definindo Objetos
+>> Existem várias maneiras de definir um objeto em JavaScript:
+>> #### Usando a notação literal usando `{...}`:
+>> ```javascript
+>> const pessoa = {
+>>   primeiroNome: "Henrique",
+>>   segundoNome: "Lusti",
+>>   idade: 22,
+>>   altura: 175
+>> };
+>> ```
+>> Neste exemplo, `pessoa` é um objeto com quatro propriedades: `primeiroNome`, `segundoNome`, `idade`, e `altura`.
+>> 
+>> #### Usando o construtor `new Object()`:
+>> ```javascript
+>> const pessoa = new Object();
+>> pessoa.primeiroNome = "Henrique";
+>> pessoa.ultimoNome = "Lustri";
+>> pessoa.idade = 22;
+>> pessoa.altura = 175;
+>> ```
+>> Esta é uma abordagem mais longa e geralmente menos usada do que a notação literal.
+>> 
+>> ### # Acessando Propriedades
+>> Você pode acessar as propriedades de um objeto usando a notação de ponto (`.`) ou a notação de colchetes (`[]`):
+>> #### Notação de ponto:
+>> ```javascript
+>>  const pessoa = {
+>>   primeiroNome: "Henrique",
+>>   segundoNome: "Lusti",
+>>   idade: 22,
+>>   altura: 175
+>> };
+>> 
+>> console.log(pessoa.primeiroNome); // Saida: Henrique
+>> console.log(pessoa.segundoNome); // Saida: Lustri
+>> ```
+>> #### Notação de colchetes:
+>> ```javascript
+>>  const pessoa = {
+>>   primeiroNome: "Henrique",
+>>   segundoNome: "Lusti",
+>>   idade: 22,
+>>   altura: 175
+>> };
+>> 
+>> console.log(pessoa["segundoNome"]); // Saida: Lustri
+>> console.log(pessoa["idade"]); // Saida: 22
+>> ```
+>> 
+>> ### # Métodos de Objetos
+>> Objetos também podem conter métodos, que são funções associadas a objetos:
+>> ```javascript
+>> const pessoa = {
+>>   primeiroNome: "Henrique",
+>>   segundoNome: "Lustri",
+>>   idade: 22,
+>>   altura: 175,
+>>   nomeCompleto: function() {
+>>     return this.primeiroNome + " " + this.segundoNome;
+>>   }
+>> };
+>> 
+>> console.log(pessoa.nomeCompleto()); // Saida: Henrique Lustri
+>> ```
+>> No exemplo acima, `nomeCompleto` é um método do objeto `pessoa`. Ele retorna o nome completo ao concatenar `primeiroNome` e `segundoNome`.
+>> 
+>> ### # Modificando Objetos
+>> Você pode adicionar, modificar ou deletar propriedades de um objeto após sua criação:
+>> #### Adicionando novas propriedades:
+>> ```javascript
+>> pessoa.nacionalidade = "Brasileiro";
+>> ```
+>> #### Modificando propriedades existentes:
+>> ```javascript
+>> pessoa.idade = 23;
+>> ```
+>> #### Deletando propriedades:
+>> ```javascript
+>> delete pessoa.altura;
+>> ```
+>> 
+>> #### Exemplo Completo:
+>> Exemplo que reúne todos esses conceitos:
+>> ```javascript
+>> const carro = {
+>>   marca: "Porsche",
+>>   modelo: "911 Carrera GTS",
+>>   ano: 2024,
+>>   descricao: function() {
+>>     return this.marca + " " + this.modelo + " " + this.ano;
+>>   }
+>> };
+>> 
+>> console.log(carro.descricao()); // Saida: Porsche 911 Carrera GTS 2024
+>> carro.cor = "vermelho"; // Adiciona uma nova propriedade
+>> carro.ano = 2021; // Modifica a propriedade existente
+>> delete carro.modelo; // Deleta a propriedade
+>> ```
+>
+> <br>
+> 
+>> ## Objetos embutidos (Built-in objects)
+>> JavaScript oferece vários objetos integrados (built-in) que facilitam muitas operações comuns, sem a necessidade de criar tudo do zero. Esses objetos são parte da linguagem e estão disponíveis globalmente, o que significa que você pode usá-los diretamente em seu código.
+>> ### # `String`
+>> O objeto `String` é usado para representar e manipular sequências de caracteres. Strings são imutáveis, ou seja, uma vez criadas, não podem ser alteradas diretamente, mas você pode criar novas strings baseadas nas existentes.
+>> #### Criação:
+>> ```javascript
+>> // Criando uma string usando uma notação literal
+>> let texto = "Olá, Mundo!";
+>> 
+>> // Criando uma string usando o construtor String (não é comum)
+>> let textoObj = new String("Olá, Mundo!");
+>> ```
+>> #### Propriedades e Métodos Comuns:
+>> ```javascript
+>> // Tamanho da string
+>> console.log(texto.length); // 11
+>> 
+>> // Converte todos os caracteres para maiúsculas
+>> console.log(texto.toUpperCase()); // "OLÁ, MUNDO!"
+>> 
+>> // Converte todos os caracteres para minúsculas
+>> console.log(texto.toLowerCase()); // "olá, mundo!"
+>> 
+>> // Verifica se a string contém a palavra "Mundo"
+>> console.log(texto.includes("Mundo")); // true
+>> 
+>> // Substitui a palavra "Mundo" por "JavaScript"
+>> console.log(texto.replace("Mundo", "JavaScript")); // "Olá, JavaScript!"
+>> 
+>> // Retorna o caractere na posição 0 (primeiro caractere)
+>> console.log(texto.charAt(0)); // "O"
+>> 
+>> // Extrai uma parte da string entre os índices 0 e 2 (não inclui o índice 2)
+>> console.log(texto.substring(0, 2)); // "Olá"
+>> 
+>> // Exemplo:
+>> // 0 - O
+>> // 1 - l
+>> // 2 - á
+>> // 3 - ,
+>> // 4 - ' '
+>> // ... assim por diante ate mapear a string toda...
+>> ```
+>> 
+>> ### # `Number`
+>> O objeto `Number` é usado para representar e manipular números, incluindo inteiros e números de ponto flutuante. Ele inclui constantes e métodos úteis para trabalhar com números.
+>> #### Criação:
+>> ```javascript
+>> // Criando um número usando uma notação literal
+>> let numero = 123;
+>> 
+>> // Criando um número usando o construtor Number (não é comum)
+>> let numeroObj = new Number(123);
+>> ```
+>> #### Propriedades e Métodos Comuns:
+>> ```javascript
+>> // Converte o número para uma string
+>> console.log(numero.toString()); // "123"
+>> 
+>> // Formata o número para ter 2 casas decimais
+>> console.log(numero.toFixed(2)); // "123.00"
+>> 
+>> // Verifica se o valor é um número inteiro
+>> console.log(Number.isInteger(numero)); // true
+>> 
+>> // Verifica se o valor é NaN (Not-a-Number)
+>> console.log(Number.isNaN(NaN)); // true
+>> 
+>> // Maior valor numérico representável
+>> console.log(Number.MAX_VALUE); // 1.7976931348623157e+308
+>> 
+>> // Menor valor numérico representável
+>> console.log(Number.MIN_VALUE); // 5e-324
+>> ```
+>> 
+>> ### # `Math`
+>> O objeto `Math` fornece propriedades e métodos para constantes e funções matemáticas. Todos os métodos e propriedades são estáticos.
+>> #### Uso Comum:
+>> ```javascript
+>> // Valor de Pi (aproximado)
+>> console.log(Math.PI); // 3.141592653589793
+>> 
+>> // Raiz quadrada de 16
+>> console.log(Math.sqrt(16)); // 4
+>> 
+>> // Número aleatório entre 0 (inclusivo) e 1 (exclusivo)
+>> console.log(Math.random()); // Pode ser qualquer valor entre 0 e 1
+>> 
+>> // Maior valor entre os números fornecidos
+>> console.log(Math.max(10, 20, 30)); // 30
+>> 
+>> // Menor valor entre os números fornecidos
+>> console.log(Math.min(10, 20, 30)); // 10
+>> 
+>> // Arredonda o número para baixo
+>> console.log(Math.floor(1.7)); // 1
+>> 
+>> // Arredonda o número para cima
+>> console.log(Math.ceil(1.2)); // 2
+>> 
+>> // Arredonda o número para o inteiro mais próximo
+>> console.log(Math.round(1.5)); // 2
+>> ```
+>> 
+>> ### # `Date`
+>> O objeto `Date` é usado para trabalhar com datas e horas. Ele representa um ponto no tempo e fornece métodos para obter e manipular datas e horários.
+>> #### Criação:
+>> ```javascript
+>> // Cria um objeto Date com a data e hora atuais
+>> let dataAtual = new Date();
+>> 
+>> // Cria um objeto Date com uma data específica
+>> let dataEspecifica = new Date('2024-07-19');
+>> 
+>> // Cria um objeto Date a partir de um número de milissegundos desde 1 de janeiro de 1970
+>> let dataMilissegundos = new Date(1626652800000);
+>> ```
+>> #### Propriedades e Métodos Comuns:
+>> ```javascript
+>> // Obtém o ano da data atual
+>> console.log(dataAtual.getFullYear()); // Ano atual (ex: 2024)
+>> 
+>> // Obtém o mês da data atual (0-11, onde 0 é janeiro e 11 é dezembro)
+>> console.log(dataAtual.getMonth()); // Mês atual (ex: 6 para julho)
+>> 
+>> // Obtém o dia do mês
+>> console.log(dataAtual.getDate()); // Dia do mês (ex: 19)
+>> 
+>> // Obtém o dia da semana (0-6, onde 0 é domingo e 6 é sábado)
+>> console.log(dataAtual.getDay()); // Dia da semana (ex: 5 para sexta-feira)
+>> 
+>> // Obtém a hora atual
+>> console.log(dataAtual.getHours()); // Hora atual (ex: 14 para 2 PM)
+>> 
+>> // Obtém os minutos atuais
+>> console.log(dataAtual.getMinutes()); // Minutos atuais (ex: 30)
+>> 
+>> // Obtém os segundos atuais
+>> console.log(dataAtual.getSeconds()); // Segundos atuais (ex: 45)
+>> 
+>> // Converte a data para uma string em formato legível
+>> console.log(dataAtual.toLocaleDateString()); // Ex: "19/07/2024"
+>> 
+>> // Obtém o número de milissegundos desde 1 de janeiro de 1970
+>> console.log(Date.now()); // Ex: 1626652800000
+>> ```
+>> 
+>> ### # `Error`
+>> O objeto `Error` é usado para representar um erro que ocorreu durante a execução de um script. É útil para lançar e capturar exceções.
+>> #### Criação:
+>> ```javascript
+>> // Cria um novo objeto Error com uma mensagem personalizada
+>> let erro = new Error("Algo deu errado!");
+>> ```
+>> #### Uso Comum:
+>> ```javascript
+>> try {
+>>   // Lança o erro criado
+>>   throw erro;
+>> } catch (e) {
+>>   // Captura o erro e exibe o nome e a mensagem do erro
+>>   console.log(e.name); // "Error"
+>>   console.log(e.message); // "Algo deu errado!"
+>> }
+>> ```
+>> Existem tipos específicos de erros, como `TypeError`, `RangeError`, e `ReferenceError`, que fornecem informações mais detalhadas sobre o tipo de erro que ocorreu.
+>> 
+>> ### # `Function`
+>> O objeto `Function` é usado para criar novas funções dinamicamente. Embora seja possível criar funções com `Function`, a maioria das funções é definida usando declarações ou expressões.
+>> #### Criação:
+>> ```javascript
+>> // Cria uma nova função que soma dois números
+>> let soma = new Function('a', 'b', 'return a + b');
+>> 
+>> // Chama a função e exibe o resultado
+>> console.log(soma(2, 3)); // 5
+>> ```
+>> #### Uso Comum:
+>> Normalmente, funções são definidas usando declarações de função ou expressões de função:
+>> ```javascript
+>> // Declaração de função
+>> function minhaFuncao(a, b) {
+>>   return a + b;
+>> }
+>> 
+>> // Expressão de função
+>> let minhaOutraFuncao = function(a, b) {
+>>   return a + b;
+>> };
+>> 
+>> // Chama as funções
+>> console.log(minhaFuncao(2, 3)); // 5
+>> console.log(minhaOutraFuncao(4, 5)); // 9
+>> ```
+>> 
+>> ### # `Boolean`
+>> O objeto `Boolean` é usado para representar um valor booleano (verdadeiro ou falso). Normalmente, os valores booleanos são usados diretamente sem a necessidade do construtor `Boolean`.
+>> #### Criação:
+>> ```javascript
+>> // Cria um objeto Boolean com valor verdadeiro
+>> let verdadeiro = new Boolean(true);
+>> 
+>> // Cria um objeto Boolean com valor falso
+>> let falso = new Boolean(false);
+>> ```
+>> #### Uso Comum:
+>> Normalmente, valores booleanos são usados diretamente:
+>> ```javascript
+>> // Declara variáveis booleanas diretamente
+>> let isTrue = true;
+>> let isFalse = false;
+>> 
+>> // Verifica o valor das variáveis booleanas
+>> console.log(isTrue); // true
+>> console.log(isFalse); // false
+>> ```
+>
+> <br>
+>
+>> ## Prototypes
+>> ### # O Que São Prototypes?
+>> Em JavaScript, **prototypes** são um mecanismo que permite a criação de novos objetos a partir de outros objetos. Cada objeto tem uma referência interna para outro objeto chamado de prototype. Esta referência é acessível via `Object.getPrototypeOf(obj)` e `obj.__proto__` (embora o uso de `__proto__` seja desencorajado).
+>> 
+>> Quando você tenta acessar uma propriedade de um objeto, o JavaScript verifica primeiro se essa propriedade existe no próprio objeto. Se não encontrar, ele procura na cadeia de protótipos. Esta cadeia é uma sequência de objetos conectados por suas referências de prototype.
+>> 
+>> #### Exemplo de Prototypes:
+>> ```javascript
+>> // Definindo uma função construtora
+>> function Pessoa(nome) {
+>>     this.nome = nome; // Propriedade 'nome' definida diretamente no objeto
+>> }
+>> 
+>> // Adicionando um método ao prototype de Pessoa
+>> Pessoa.prototype.falarOla = function() {
+>>     console.log(`Olá, meu nome é ${this.nome}`); // 'this.nome' acessa a propriedade do objeto
+>> };
+>> 
+>> // Criando uma nova instância de Pessoa
+>> const henrique = new Pessoa('Henrique');
+>> 
+>> // Chamando o método 'falarOla' da instância 'henrique'
+>> henrique.falarOla(); // Saida: Olá, meu nome é Henrique
+>> ```
+>> #### Explicação do Exemplo:
+>> 1. **Função Construtora:** `Pessoa` é uma função construtora que cria objetos com uma propriedade `nome`.
+>> 2. **Método no Prototype:** O método `falarOla` é adicionado ao prototype da função `Pessoa`. Assim, todas as instâncias de `Pessoa` terão acesso a esse método.
+>> 3. **Instância e Acesso ao Método:** Quando criamos `henrique` usando `new Pessoa('Henrique')`, ele herda o método `falarOla` do prototype. Isso permite que chamemos `henrique.falarOla()` e acesse a propriedade `nome` definida na instância.
+>
+> <br>
+>
+>> ## Prototypal Inheritance
+>> #### O Que é Prototypal Inheritance?
+>> **Prototypal Inheritance** é o modelo de herança em JavaScript onde objetos podem herdar diretamente de outros objetos. Em vez de definir uma classe base e subclasses, você pode criar um objeto a partir de outro objeto, permitindo que o novo objeto herde as propriedades e métodos do objeto original.
+>> #### Exemplo de Prototypal Inheritance:
+>> ```javascript
+>> // Criando um objeto 'animal' com uma propriedade 'comem'
+>> const animal = {
+>>     comem: true // Todos os animais "comem"
+>> };
+>> 
+>> // Criando um novo objeto 'coelho' que herda de 'animal'
+>> const coelho = Object.create(animal); // 'coelho' herda de 'animal'
+>> coelho.pular = true; // 'coelho' tem uma propriedade própria 'pular'
+>> 
+>> // Acessando propriedades do objeto 'coelho'
+>> console.log(coelho.comem); // Saida: true (herdado de 'animal')
+>> console.log(coelho.pular); // Saida: true (propriedade própria de 'coelho')
+>> 
+>> // Demonstrando a cadeia de protótipos
+>> console.log(Object.getPrototypeOf(coelho) === animal); // Saida: true (verifica se 'animal' é o >> protótipo de 'coelho')
+>> ```
+>> #### Explicação do Exemplo:
+>> 1. **Objeto Base:** `animal` é um objeto com uma propriedade `comem`. Esse objeto serve como protótipo.
+>> 2. **Criação do Objeto Herdeiro:** Usamos `Object.create(animal)` para criar `coelho`. Este método cria um novo objeto que herda diretamente de `animal`.
+>> 3. **Propriedades e Métodos:** `coelho` pode acessar a propriedade `comem` herdada de `animal`. Além disso, `coelho` tem uma propriedade própria chamada `pular`.
+>> 4. **Verificação da Cadeia de Protótipos:** `Object.getPrototypeOf(coelho)` retorna o objeto de que `coelho` herda, que é `animal`. Isso confirma a cadeia de protótipos.
+>
+>> ### Conclusão:
+>> - **Prototypes** em JavaScript permitem que objetos compartilhem métodos e propriedades, economizando memória e promovendo a reutilização de código.
+>> - **Prototypal Inheritance** permite criar objetos que herdam diretamente de outros objetos, criando uma cadeia onde propriedades e métodos podem ser acessados e compartilhados entre objetos.
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - Objetos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects) e [MDN - prototypes e prototypal inheritance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+<br>
+<hr>
+
+![Diagrama Mermaid](/assets/image/conversaoDeTipos.svg)
+
+>> ## Conversão de Tipos
+>>> # LOADING....
