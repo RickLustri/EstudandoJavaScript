@@ -651,7 +651,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> ```javascript
 >> const pessoa = {
 >>   primeiroNome: "Henrique",
->>   segundoNome: "Lusti",
+>>   segundoNome: "Lustri",
 >>   idade: 22,
 >>   altura: 175
 >> };
@@ -674,7 +674,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> ```javascript
 >>  const pessoa = {
 >>   primeiroNome: "Henrique",
->>   segundoNome: "Lusti",
+>>   segundoNome: "Lustri",
 >>   idade: 22,
 >>   altura: 175
 >> };
@@ -686,7 +686,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> ```javascript
 >>  const pessoa = {
 >>   primeiroNome: "Henrique",
->>   segundoNome: "Lusti",
+>>   segundoNome: "Lustri",
 >>   idade: 22,
 >>   altura: 175
 >> };
@@ -1033,5 +1033,86 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 
 ![Diagrama Mermaid](/assets/image/conversaoDeTipos.svg)
 
->> ## Conversão de Tipos
->>> # LOADING....
+>> ## Conversão de Tipos (Type Casting)
+>> **Type Casting** refere-se ao processo de transformar um valor de um tipo de dado para outro tipo. Em JavaScript, isso pode ser feito de forma explícita ou implícita.
+>> ### # Conversão de tipo explícito (Explicit Type Casting)
+>> **Explicit Type Casting** (ou casting explicit) ocorre quando você, como desenvolvedor, toma medidas específicas para converter um tipo de dado para outro. Isso é feito usando funções e métodos específicos para fazer a conversão.
+>> #### Exemplos:
+>> **Convertendo para Número:**
+>> ```javascript
+>> let texto = "123"; // Declaração de uma string com valor "123"
+>> let numero = Number(texto); // Converte a string para número usando a função Number
+>> console.log(numero); // 123 - Saída do número convertido
+>> console.log(typeof numero); // "number" - Saída do tipo do valor convertido
+>> ```
+>> **Convertendo para String:**
+>> ```javascript
+>> let numero = 123; // Declaração de um número
+>> let texto = String(numero); // Converte o número para string usando a função String
+>> console.log(texto); // "123" - Saída da string convertida
+>> console.log(typeof texto); // "string" - Saída do tipo do valor convertido
+>> ```
+>> **Convertendo para Booleano:**
+>> ```javascript
+>> let valor = 0; // Declaração de um número com valor 0
+>> let bool = Boolean(valor); // Converte o número para booleano usando a função Boolean
+>> console.log(bool); // false - Saída do booleano convertido
+>> console.log(typeof bool); // "boolean" - Saída do tipo do valor convertido
+>> ```
+>> 
+>> ### # Conversão de tipo implícita (Implicit Type Casting)
+>> **Implicit Type Casting** (ou casting implicit) ocorre quando o JavaScript automaticamente converte tipos de dados conforme necessário. Isso geralmente acontece em operações que envolvem diferentes tipos de dados.
+>> #### Exemplos:
+>> **Concatenação de Strings:**
+>> ```javascript
+>> let numero = 123; // Declaração de um número
+>> let texto = "O número é " + numero; // Concatena número com string, convertendo implicitamente o número para string
+>> console.log(texto); // "O número é 123" - Saída da string concatenada
+>> console.log(typeof texto); // "string" - Saída do tipo do valor resultante
+>> ```
+>> **Operações Aritméticas:**
+>> ```javascript
+>> let texto = "5"; // Declaração de uma string com valor "5"
+>> let numero = 10; // Declaração de um número com valor 10
+>> let resultado = texto * numero; // Multiplica string por número, convertendo implicitamente a string para número
+>> console.log(resultado); // 50 - Saída do resultado da multiplicação
+>> console.log(typeof resultado); // "number" - Saída do tipo do valor resultante
+>> ```
+>> **Contexto Booleano:**
+>> ```javascript
+>> let valor = "Olá"; // Declaração de uma string com valor "hello"
+>> if (valor) { // Converte a string para booleano implicitamente
+>>     console.log("A string não está vazia!"); // "A string não está vazia!" - Saída caso a string seja verdadeira
+>> }
+>> ```
+>> ### # Conversão/coerção de tipo (Type Conversion/Coercion)
+>> **Type Conversion** (ou **Type Coercion**) refere-se ao mesmo conceito de Type Casting, onde um tipo de dado é convertido em outro. Em JavaScript, a conversão de tipo pode ser:
+>> - **Automática (implícita)**: Quando o JavaScript automaticamente converte o tipo de dado conforme necessário, como mostrado nos exemplos de casting implícito.
+>> - **Manual (explícita)**: Quando o desenvolvedor usa métodos e funções específicas para converter os tipos de dados, como mostrado nos exemplos de casting explícito.
+>> 
+>> A conversão de tipo pode ocorrer em diferentes contextos, como em operações aritméticas, comparação de valores, e contextos booleanos.
+>> #### Exemplos:
+>> **Comparação de Valores:**
+>> ```javascript
+>> console.log("5" == 5); // true - Converte string para número implicitamente e compara os valores
+>> console.log("5" === 5); // false - Sem conversão implícita, compara tipos diferentes (string e número)
+>> ```
+>> **Operações Aritméticas com Strings:**
+>> ```javascript
+>> let resultado = "10" - 2; // Converte string para número implicitamente e realiza a subtração
+>> console.log(resultado); // 8 - Saída do resultado da subtração
+>> console.log(typeof resultado); // "number" - Saída do tipo do valor resultante
+>> ```
+>> **Conversão em Contexto Booleano:**
+>> ```javascript
+>> let valor = ""; // Declaração de uma string vazia
+>> if (valor) { // Converte a string vazia para false implicitamente
+>>     console.log("Esta mensagem não será exibida");
+>> } else {
+>>     console.log("String está vazia"); // "String está vazia" - Saída caso a string seja falsa
+>> }
+>> ```
+<br>
+<hr>
+
+![Diagrama Mermaid](/assets/image/estruturaDeDados.svg)
