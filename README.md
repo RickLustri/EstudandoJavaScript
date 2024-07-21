@@ -1116,3 +1116,6 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 <hr>
 
 ![Diagrama Mermaid](/assets/image/estruturaDeDados.svg)
+
+>> Estrutura de dados
+>>> # LOADING...
