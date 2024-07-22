@@ -1117,5 +1117,269 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 
 ![Diagrama Mermaid](/assets/image/estruturaDeDados.svg)
 
->> Estrutura de dados
->>> # LOADING...
+>> ## Estruturas de Dados
+>> As estruturas de dados são formas organizadas de armazenar e manipular informações em um computador. Elas são fundamentais para a eficiência dos algoritmos e do desempenho dos programas. Vamos explorar algumas das principais categorias de estruturas de dados em detalhes.
+>> ### Coleções Indexadas (Indexed collections)
+>> **Indexed collections** são estruturas de dados onde os elementos são acessados através de índices numéricos. Dois exemplos comuns são matrizes e matrizes tipadas.
+>> ### # Matrizes (Arrays)
+>> Uma **matriz** (ou array) é uma coleção de elementos, geralmente do mesmo tipo, armazenados em posições consecutivas na memória. Os elementos são acessados por índices, que começam em 0.
+>> 
+>> **Criação de um Array**:\
+>> Você pode criar um array usando colchetes `[]` e separando os elementos por vírgulas.
+>> ```javascript
+>> let frutas = ["Maçã", "Banana", "Laranja"];
+>> ```
+>> **Acessando Elementos**:\
+>> Os elementos são acessados usando o índice do array, que começa em 0.
+>> ```javascript
+>> console.log(frutas[0]); // Saída: Maçã
+>> console.log(frutas[1]); // Saída: Banana
+>> console.log(frutas[2]); // Saída: Laranja
+>> ```
+>> **Modificando Elementos**:\
+>> Você pode modificar os elementos do array atribuindo novos valores aos índices correspondentes.
+>> ```javascript
+>> frutas[1] = "Morango";
+>> console.log(frutas[1]); // Saída: Morango
+>> ```
+>> **Métodos Comuns**:\
+>> Arrays vêm com diversos métodos embutidos para manipulação.
+>> ```javascript
+>> // Adiciona um elemento ao final
+>> frutas.push("Uva");
+>> console.log(frutas); // Saída: ["Maçã", "Morango", "Laranja", "Uva"]
+>> 
+>> // Remove o último elemento
+>> frutas.pop();
+>> console.log(frutas); // Saída: ["Maçã", "Morango", "Laranja"]
+>> 
+>> // Itera sobre os elementos
+>> frutas.forEach(function(fruta) {
+>>   console.log(fruta);
+>> });
+>> // Saída:
+>> // Maçã
+>> // Morango
+>> // Laranja
+>> 
+>> // Adiciona um elemento ao início
+>> frutas.unshift("Pera");
+>> console.log(frutas); // Saída: ["Pera", "Maçã", "Morango", "Laranja"]
+>> 
+>> // Remove o primeiro elemento
+>> frutas.shift();
+>> console.log(frutas); // Saída: ["Maçã", "Morango", "Laranja"]
+>> 
+>> // Encontra o índice de um elemento
+>> let indice = frutas.indexOf("Morango");
+>> console.log(indice); // Saída: 1
+>> 
+>> // Remove um elemento específico
+>> let indiceBanana = frutas.indexOf("Banana");
+>> if (indiceBanana !== -1) {
+>>   frutas.splice(indiceBanana, 1);
+>> }
+>> console.log(frutas); // Saída: ["Maçã", "Morango", "Laranja"]
+>> 
+>> // Copia uma parte do array
+>> let algumasFrutas = frutas.slice(1, 3);
+>> console.log(algumasFrutas); // Saída: ["Morango", "Laranja"]
+>> 
+>> // Mescla dois arrays
+>> let maisFrutas = ["Abacaxi", "Manga"];
+>> let todasFrutas = frutas.concat(maisFrutas);
+>> console.log(todasFrutas); // Saída: ["Maçã", "Morango", "Laranja", "Abacaxi", "Manga"]
+>> ```
+>> 
+>> ### # Matrizes Tipadas (Typed Arrays)
+>> **Matrizes tipadas** são arrays que armazenam dados de um único tipo. Elas são úteis para operações de baixo nível e manipulação de grandes volumes de dados numéricos.
+>> 
+>> **Criação de um Typed Array**:\
+>> Você cria um Typed Array usando construtores como `Int32Array`, `Float64Array`, etc.
+>> ```javascript
+>> let buffer = new ArrayBuffer(16); // Cria um buffer de 16 bytes
+>> let int32View = new Int32Array(buffer); // Cria uma visão Int32Array sobre o buffer
+>> 
+>> int32View[0] = 42;
+>> int32View[1] = 43;
+>> 
+>> console.log(int32View[0]); // Saída: 42
+>> console.log(int32View[1]); // Saída: 43
+>> ```
+>> **Iterando sobre um Typed Array**:\
+>> Você pode usar um loop para iterar sobre os elementos de um Typed Array.
+>> ```javascript
+>> for (let i = 0; i < int32View.length; i++) {
+>>   console.log(int32View[i]);
+>> }
+>> // Saída:
+>> // 42
+>> // 43
+>> // 0
+>> // 0
+>> ```
+>> 
+>> ### Coleções Chaveadas (Keyed Collections)
+>> **Keyed Collections** armazenam dados em pares chave-valor, permitindo acesso eficiente aos valores através de suas chaves.
+>> ### # Map
+>> Um **Map** é uma coleção de pares chave-valor onde as chaves podem ser de qualquer tipo.
+>> 
+>> **Criação de um Map**:\
+>> Você cria um Map usando o construtor `Map`.
+>> ```javascript
+>> let mapa = new Map();
+>> ```
+>> **Adicionando e Acessando Elementos**:\
+>> Use `set` para adicionar elementos e `get` para acessá-los.
+>> ```javascript
+>> mapa.set("nome", "Henrique");
+>> mapa.set("idade", 22);
+>> 
+>> console.log(mapa.get("nome")); // Saída: Henrique
+>> console.log(mapa.get("idade")); // Saída: 22
+>> ```
+>> **Verificando a Existência de uma Chave**:\
+>> Use `has` para verificar se uma chave existe no Map.
+>> ```javascript
+>> console.log(mapa.has("nome")); // Saída: true
+>> console.log(mapa.has("endereço")); // Saída: false
+>> ```
+>> **Removendo Elementos**:\
+>> Use `delete` para remover um elemento por sua chave.
+>> ```javascript
+>> mapa.delete("idade");
+>> console.log(mapa.has("idade")); // Saída: false
+>> ```
+>> **Iterando sobre um Map**:\
+>> Você pode usar `forEach` ou `for...of` para iterar sobre os elementos do Map.
+>> ```javascript
+>> mapa.forEach((valor, chave) => {
+>>   console.log(`${chave}: ${valor}`);
+>> });
+>> // Saída:
+>> // nome: Henrique
+>> 
+>> for (let [chave, valor] of mapa) {
+>>   console.log(`${chave}: ${valor}`);
+>> }
+>> // Saída:
+>> // nome: Henrique
+>> ```
+>> 
+>> ### # WeakMap
+>> Um **WeakMap** é similar a um Map, mas só aceita objetos como chaves e não impede que esses objetos sejam coletados pelo garbage collector se não houver outras referências a eles.
+>> 
+>> **Criação de um WeakMap**:\
+>> Use o construtor `WeakMap`.
+>> ```javascript
+>> let weakMap = new WeakMap();
+>> ```
+>> **Adicionando e Acessando Elementos**:\
+>> Use `set` para adicionar elementos e `get` para acessá-los.
+>> ```javascript
+>> let obj = {nome: "Henrique"};
+>> weakMap.set(obj, "algum valor");
+>> 
+>> console.log(weakMap.get(obj)); // Saída: algum valor
+>> ```
+>> **Garbage Collection**:\
+Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage collector.
+>> ```javascript
+>> obj = null; // O objeto agora é elegível para garbage collection
+>> ```
+>> 
+>> ### # Set
+>> Um **Set** é uma coleção de valores únicos, ou seja, não permite elementos duplicados.
+>> 
+>> **Criação de um Set**:\
+>> Use o construtor `Set`.
+>> ```javascript
+>> let conjunto = new Set();
+>> ```
+>> **Adicionando Elementos**:\
+>> Use `add` para adicionar elementos.
+>> ```javascript
+>> conjunto.add(1);
+>> conjunto.add(2);
+>> conjunto.add(2); // Ignorado, pois 2 já está no conjunto
+>> ```
+>> **Verificando a Existência de um Elemento**:\
+>> Use `has` para verificar se um elemento existe no Set.
+>> ```javascript
+>> console.log(conjunto.has(1)); // Saída: true
+>> console.log(conjunto.has(3)); // Saída: false
+>> ```
+>> **Removendo Elementos**:\
+>> Use `delete` para remover um elemento.
+>> ```javascript
+>> conjunto.delete(1);
+>> console.log(conjunto.has(1)); // Saída: false
+>> ```
+>> **Iterando sobre um Set**:\
+>> Você pode usar `forEach` ou `for...of` para iterar sobre os elementos do Set.
+>> ```javascript
+>> conjunto.forEach((valor) => {
+>>   console.log(valor);
+>> });
+>> // Saída:
+>> // 2
+>> 
+>> for (let valor of conjunto) {
+>>   console.log(valor);
+>> }
+>> // Saída:
+>> // 2
+>> ```
+>> 
+>> ### # WeakSet
+>> Um **WeakSet** é similar a um Set, mas só armazena objetos e permite que esses objetos sejam coletados pelo garbage collector se não houver outras referências a eles.
+>> 
+>> **Criação de um WeakSet**:\
+>> Use o construtor `WeakSet`.
+>> ```javascript
+>> let weakSet = new WeakSet();
+>> ```
+>> **Adicionando Elementos**:\
+>> Use `add` para adicionar elementos.
+>> ```javascript
+>> let obj1 = {data: "dados"};
+>> weakSet.add(obj1);
+>> ```
+>> **Garbage Collection**:\
+>> Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage collector.
+>> ```javascript
+>> obj1 = null; // O objeto agora é elegível para garbage collection
+>> ```
+>> 
+>> ### Dados Estruturados (Structured data)
+>> **Structured data** são usados para representar e trocar dados de maneira estruturada e legível.
+>> ### # JSON
+>> **JSON** (JavaScript Object Notation) é um formato leve de troca de dados, fácil de ler e escrever para humanos e fácil de analisar e gerar para máquinas.
+>> 
+>> **Objeto JavaScript**:\
+>> Um objeto em JavaScript pode ser convertido para JSON.
+>> ```javascript
+>> let pessoa = {
+>>   nome: "Henrique",
+>>   idade: 22,
+>>   cidade: "São Paulo"
+>> };
+>> ```
+>> **Conversão para JSON**:\
+>> Use `JSON.stringify` para converter um objeto JavaScript para uma string JSON.
+>> ```javascript
+>> let json = JSON.stringify(pessoa);
+>> console.log(json); // Saída: {"nome":"Henrique","idade":22,"cidade":"São Paulo"}
+>> ```
+>> **Conversão de JSON para Objeto**:\
+>> Use `JSON.parse` para converter uma string JSON de volta para um objeto JavaScript.
+>> ```javascript
+>> let obj = JSON.parse(json);
+>> console.log(obj.nome); // Saída: Henrique
+>> ```
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - Arrays](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array), [MDN - Typed Arrays](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Typed_arrays), [MDN - Map](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Map), [MDN - WeakMap](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/WeakMap), [MDN - Set](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Set), [MDN - WeakSet](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/WeakSet), [MDN - JSON](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON)
+<br>
+<hr>
+
+![Diagrama Mermaid](/assets/image/conparacaoDeIgualdade.svg)
+>> # LOADING...
