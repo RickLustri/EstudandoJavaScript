@@ -1030,6 +1030,8 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - Objetos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects) e [MDN - prototypes e prototypal inheritance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 <br>
 <hr>
+<h3 align="center"> Não esqueça de sempre praticar; você não aprende a andar de skate apenas olhando... essa frase não é sobre skate.</h3>
+<hr>
 
 ![Diagrama Mermaid](/assets/image/conversaoDeTipos.svg)
 
@@ -1113,6 +1115,8 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> }
 >> ```
 <br>
+<hr>
+<h3 align="center"> Não esqueça de sempre praticar; você não aprende a andar de patinete apenas olhando... essa frase não é sobre patinete.</h3>
 <hr>
 
 ![Diagrama Mermaid](/assets/image/estruturaDeDados.svg)
@@ -1380,6 +1384,126 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 >> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - Arrays](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array), [MDN - Typed Arrays](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Typed_arrays), [MDN - Map](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Map), [MDN - WeakMap](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/WeakMap), [MDN - Set](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Set), [MDN - WeakSet](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/WeakSet), [MDN - JSON](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON)
 <br>
 <hr>
+<h3 align="center"> Não esqueça de sempre praticar; você não aprende a programar apenas olhando... essa sim! essa frase é sobre programar.</h3>
+<hr>
 
 ![Diagrama Mermaid](/assets/image/conparacaoDeIgualdade.svg)
+
+>> ## Comparação de Igualdade
+>> Comparações de igualdade são fundamentais em JavaScript para verificar se dois valores são iguais. Existem diferentes operadores e algoritmos para fazer essas comparações, cada um com suas particularidades. Vamos explorar os principais operadores de comparação de valor e os algoritmos de igualdade em detalhes.
+>> ### # Operador de Comparação 
+>> #### `==` (Igualdade)
+>> O operador `==` compara dois valores para igualdade, realizando conversão de tipo (type coercion) se necessário. Isso significa que ele tenta converter os operandos para um tipo comum antes de compará-los.
+>> ```javascript
+>> console.log(1 == '1'); // true
+>> // O valor numérico 1 é comparado com o valor da string '1'.
+>> // A string é convertida para o número 1 antes da comparação, resultando em true.
+>> 
+>> console.log(true == 1); // true
+>> // O valor booleano true é comparado com o valor númerico 1.
+>> // true é convertido para 1 antes da comparação, resultando em true.
+>> 
+>> console.log(null == undefined); // true
+>> // null e undefined são considerados iguais pelo operador ==
+>> ```
+>> #### `===` (Igualdade Estrita)
+>> O operador `===` compara dois valores para igualdade sem realizar conversão de tipo. Ambos os valores e tipos devem ser iguais para que a comparação seja verdadeira.
+>> ```javascript
+>> console.log(1 === '1'); // false
+>> // O valor numérico 1 é comparado com a string '1'.
+>> // Como os tipos são diferentes (número e string), o resultado é false.
+>> 
+>> console.log(true === 1); // false
+>> // O valor booleano true é comparado com o número 1.
+>> // Como os tipos são diferentes (booleano e número), o resultado é false.
+>> 
+>> console.log(null === undefined); // false
+>> // null e undefined têm tipos diferentes, resultando em false.
+>> ```
+>> #### `Object.is()`
+>> O método `Object.is()` compara dois valores para igualdade. Ele é semelhante ao operador `===`, mas trata `NaN` como igual a `NaN` e diferencia `+0` de `-0`.
+>> ```javascript
+>> console.log(Object.is(1, 1)); // true
+>> // Ambos os valores e tipos são iguais.
+>> 
+>> console.log(Object.is(NaN, NaN)); // true
+>> // Diferente de `===`, `Object.is()` considera NaN igual a NaN.
+>> 
+>> console.log(Object.is(+0, -0)); // false
+>> // `Object.is()` diferencia +0 e -0, ao contrário de `===`.
+>> ```
+>> 
+>> ### # Algoritmos de Igualdade
+>> #### `LooselyEqual` (algoritmo de igualdade abstrata)
+>> O algoritmo de igualdade abstrata é usado pelo operador `==` para comparar dois valores com coerção de tipo.\
+>> #### Algumas das regras principais incluem:
+>> - Se um valor é `null` e o outro é `undefined`, eles são iguais.
+>> - Se um valor é um número e o outro é uma string, converta a string para número e compare.
+>> - Se um valor é booleano, converta-o para número (`true` se torna `1`, `false` se torna `0`) e compare.
+>> - Se um valor é um objeto e o outro é um tipo primitivo, converta o objeto para seu valor primitivo usando a função `toPrimitive`.
+>> ```javascript
+>> console.log('42' == 42); // true
+>> // A string '42' é convertida para o número 42 antes da comparação, resultando em true.
+>> 
+>> console.log(true == 1); // true
+>> // O booleano true é convertido para o número 1 antes da comparação, resultando em true.
+>> 
+>> console.log([1, 2] == '1,2'); // true
+>> // O array [1, 2] é convertido para a string '1,2' antes da comparação, resultando em true.
+>> 
+>> console.log({} == '[object Object]'); // false
+>> // O objeto {} não é convertido para a string '[object Object]', então a comparação resulta em false.
+>> ```
+>> #### `StrictlyEqual` (algoritmo de igualdade estrita)
+>> Este algoritmo é usado pelo operador `===` e é mais simples, pois não realiza conversões de tipo. Ele apenas verifica se os dois valores são do mesmo tipo e valor.
+>> #### Exemplo:
+>> ```javascript
+>> console.log('42' === 42); // false
+>> // A string '42' e o número 42 são de tipos diferentes, então a comparação resulta em false.
+>> 
+>> console.log(true === 1); // false
+>> // O booleano true e o número 1 são de tipos diferentes, então a comparação resulta em false.
+>> 
+>> console.log([1, 2] === '1,2'); // false
+>> // O array [1, 2] e a string '1,2' são de tipos diferentes, então a comparação resulta em false.
+>> 
+>> console.log({} === {}); // false
+>> // Cada objeto {} é uma instância diferente na memória, então a comparação resulta em false.
+>> 
+>> console.log(NaN === NaN); // false
+>> // NaN nunca é igual a si mesmo, então a comparação resulta em false.
+>> 
+>> console.log(+0 === -0); // true
+>> // 0 positivo e negativo são considerados iguais, então a comparação resulta em true.
+>> 
+>> console.log(Symbol('foo') === Symbol('foo')); // false
+>> // Cada chamada a Symbol() cria um símbolo único, então a comparação resulta em false.
+>> ```
+>> #### `SameValueZero` (Mesmo valor que zero)
+>> O algoritmo `SameValueZero` considera `NaN` igual a `NaN` e não diferencia entre `+0` e `-0`. É usado em algumas operações de array e objetos.
+>> ```javascript
+>> console.log(Object.is(NaN, NaN)); // true
+>> // `Object.is()` usa o algoritmo `SameValueZero`, então NaN é igual a NaN.
+>> 
+>> console.log([+0].includes(-0)); // true
+>> // O método `Array.prototype.includes` usa `SameValueZero`, então +0 é igual a -0.
+>> ```
+>> #### `SameValue` (Mesmo valor)
+>> O algoritmo `SameValue` é similar ao `StrictEqual`, mas considera `NaN` igual a `NaN` e diferencia `+0` e `-0`.
+>> ```javascript
+>> console.log(Object.is(+0, -0)); // false
+>> // `Object.is()` usa o algoritmo `SameValue`, diferenciando +0 e -0.
+>> 
+>> console.log(Object.is(NaN, NaN)); // true
+>> // `SameValue` considera NaN igual a NaN.
+>> ```
+>> ### # Conclusão:
+>> Entender os diferentes operadores de comparação e algoritmos de igualdade em JavaScript é essencial para escrever código correto e previsível. Saber quando usar `==`, `===` ou `Object.is()`, e como os algoritmos `LooselyEqual`, `StrictlyEqual`, `SameValueZero` e `SameValue` funcionam, ajuda a evitar bugs e comportamentos inesperados no código.
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [w3schools - Comparações](https://www.w3schools.com/js/js_comparisons.asp) e [MDN - Comparação de Igualdade](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+<br>
+<hr>
+<h3 align="center"> Não esqueça de sempre praticar; você não aprende a jogar bola apenas olhando... essa frase não é sobre jogar bola.</h3>
+<hr>
+
+![Diagrama Mermaid](/assets/image/loopsEiteracoes.svg)
 >> # LOADING...
