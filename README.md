@@ -1061,7 +1061,9 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> console.log(bool); // false - Saída do booleano convertido
 >> console.log(typeof bool); // "boolean" - Saída do tipo do valor convertido
 >> ```
->> 
+>
+> <br>
+>
 >> ### # Conversão de tipo implícita (Implicit Type Casting)
 >> **Implicit Type Casting** (ou casting implicit) ocorre quando o JavaScript automaticamente converte tipos de dados conforme necessário. Isso geralmente acontece em operações que envolvem diferentes tipos de dados.
 >> #### Exemplos:
@@ -1087,6 +1089,9 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >>     console.log("A string não está vazia!"); // "A string não está vazia!" - Saída caso a string seja verdadeira
 >> }
 >> ```
+>
+> <br>
+>
 >> ### # Conversão/coerção de tipo (Type Conversion/Coercion)
 >> **Type Conversion** (ou **Type Coercion**) refere-se ao mesmo conceito de Type Casting, onde um tipo de dado é convertido em outro. Em JavaScript, a conversão de tipo pode ser:
 >> - **Automática (implícita)**: Quando o JavaScript automaticamente converte o tipo de dado conforme necessário, como mostrado nos exemplos de casting implícito.
@@ -1222,7 +1227,9 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> // 0
 >> // 0
 >> ```
->> 
+>
+> <br>
+>
 >> ### Coleções Chaveadas (Keyed Collections)
 >> **Keyed Collections** armazenam dados em pares chave-valor, permitindo acesso eficiente aos valores através de suas chaves.
 >> ### # Map
@@ -1354,7 +1361,9 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 >> ```javascript
 >> obj1 = null; // O objeto agora é elegível para garbage collection
 >> ```
->> 
+>
+> <br>
+>
 >> ### Dados Estruturados (Structured data)
 >> **Structured data** são usados para representar e trocar dados de maneira estruturada e legível.
 >> ### # JSON
@@ -1432,7 +1441,9 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 >> console.log(Object.is(+0, -0)); // false
 >> // `Object.is()` diferencia +0 e -0, ao contrário de `===`.
 >> ```
->> 
+>
+> <br>
+>
 >> ### # Algoritmos de Igualdade
 >> #### `LooselyEqual` (algoritmo de igualdade abstrata)
 >> O algoritmo de igualdade abstrata é usado pelo operador `==` para comparar dois valores com coerção de tipo.\
@@ -1506,4 +1517,171 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 <hr>
 
 ![Diagrama Mermaid](/assets/image/loopsEiteracoes.svg)
+
+>> ## loops e Iterações
+>> ### # Loop "for"
+>> O loop `for` é uma estrutura de repetição que permite executar um bloco de código um número específico de vezes. Ele é útil quando você sabe com antecedência quantas vezes deseja repetir uma operação.
+>> #### Sintaxe:
+>> ```javascript
+>> for (inicialização; condição; incremento) {
+>>   // Código a ser executado
+>> }
+>> ```
+>> 
+>> - **Inicialização:** Definição e inicialização de uma variável de controle (geralmente um contador).
+>> - **Condição:** A condição que será verificada antes de cada iteração do loop. Se a condição for verdadeira, o bloco de código dentro do loop será executado.
+>> - **Incremento:** Atualização da variável de controle após cada iteração.
+>> #### Exemplo:
+>> ```javascript
+>> for (let i = 0; i < 5; i++) {
+>>   console.log("O número é " + i);
+>> }
+>> ```
+>> - `let i = 0;` - Inicializa a variável `i` com 0.
+>> - `i < 5;` - O loop continua enquanto `i` for menor que 5.
+>> - `i++;` - Incrementa `i` em 1 após cada iteração.
+>> - Imprime os números de 0 a 4 no console.
+>> 
+>> ### # Declaração "for...of"
+>> A declaração `for...of` é usada para iterar sobre objetos iteráveis (como arrays, strings, Map, Set, etc.), permitindo acessar diretamente os valores dos elementos.
+>> #### Sintaxe:
+>> ```javascript
+>> for (const valor of iterável) {
+>>   // Código a ser executado
+>> }
+>> ```
+>> - `const valor` - Declara uma variável que armazena o valor do elemento atual.
+>> - `iterável` - O objeto iterável (como um array) sobre o qual você está iterando.
+>> #### Exemplo:
+>> ```javascript
+>> const array = ['a', 'b', 'c', 'd'];
+>> for (const elemento of array) {
+>>   console.log(elemento);
+>> }
+>> ```
+>> - Itera sobre cada elemento do array `array`.
+>> - Imprime `a`, `b`, `c` e `d` no console.
+>> 
+>> ### # Declaração "for...in"
+>> A declaração `for...in` é usada para iterar sobre as propriedades enumeráveis de um objeto, permitindo acessar as chaves dessas propriedades.
+>> #### Sintaxe:
+>> ```javascript
+>> for (const propriedade in objeto) {
+>>   // Código a ser executado
+>> }
+>> ```
+>> - `const propriedade` - Declara uma variável que armazena a chave da propriedade atual.
+>> - `objeto` - O objeto cujas propriedades você está iterando.
+>> #### Exemplo:
+>> ```javascript
+>> const objeto = {a: 1, b: 2, c: 3};
+>> for (const chave in objeto) {
+>>   console.log(`A chave é ${chave} e o valor é ${objeto[chave]}`);
+>> }
+>> ```
+>> - Itera sobre cada chave do objeto `objeto`.
+>> - Imprime `A chave é a e o valor é 1`, `A chave é b e o valor é 2`, e `A chave é c e o valor é 3` no console.
+>
+> <br>
+>
+>> ### # Loop "while"
+>> O loop `while` executa um bloco de código enquanto uma condição especificada for verdadeira. É usado quando não se sabe antecipadamente quantas vezes o loop deve ser executado.
+>> #### Sintaxe:
+>> ```javascript
+>> while (condição) {
+>>   // Código a ser executado
+>> }
+>> ```
+>> - `condição` - A condição que será verificada antes de cada iteração do loop. Se a condição for verdadeira, o bloco de código será executado.
+>> #### Exemplo:
+>> ```javascript
+>> let contador = 0;
+>> while (contador < 5) {
+>>   console.log("O contador é " + contador);
+>>   contador++;
+>> }
+>> ```
+>> - Executa o loop enquanto `contador` for menor que 5.
+>> - Incrementa `contador` em 1 após cada iteração.
+>> - Imprime os números de 0 a 4 no console.
+>> 
+>> ### # Declaração "do...while"
+>> O loop `do...while` é semelhante ao `while`, mas garante que o bloco de código seja executado pelo menos uma vez, pois a condição é verificada após a execução do bloco de código.
+>> #### Sintaxe:
+>> ```javascript
+>> do {
+>>   // Código a ser executado
+>> } while (condição);
+>> ```
+>> - O bloco de código dentro do `do` será executado primeiro, independentemente da condição.
+>> - A condição é verificada após a execução do bloco de código.
+>> #### Exemplo:
+>> ```javascript
+>> let contador = 0;
+>> do {
+>>   console.log("O contador é " + contador);
+>>   contador++;
+>> } while (contador < 5);
+>> ```
+>> - Executa o bloco de código e depois verifica a condição.
+>> - Isso garante que o código seja executado pelo menos uma vez, mesmo que a condição inicial não seja verdadeira.
+>> - Imprime os números de 0 a 4 no console.
+>
+> <br>
+>
+>> ### # Break e Continue
+>> As declarações `break` e `continue` são usadas para controlar o fluxo dos loops.
+>> - **`break`:** Sai imediatamente do loop, interrompendo sua execução.
+>> - **`continue`:** Pula a iteração atual e vai para a próxima iteração do loop.
+>> #### Exemplo com `break`:
+>> ```javascript
+>> for (let i = 0; i < 10; i++) {
+>>   if (i === 5) {
+>>     break;
+>>   }
+>>   console.log(i);
+>> }
+>> ```
+>> - O loop será interrompido quando `i` for igual a 5.
+>> - O console mostrará `0, 1, 2, 3, 4`.
+>> #### Exemplo com `continue`:
+>> ```javascript
+>> for (let i = 0; i < 10; i++) {
+>>   if (i === 5) {
+>>     continue;
+>>   }
+>>   console.log(i);
+>> }
+>> ```
+>> - O loop pula a iteração quando `i` é igual a 5.
+>> - O console mostrará `0, 1, 2, 3, 4, 6, 7, 8, 9`.
+>> 
+>> ### # Declarações Rotuladas
+>> As declarações rotuladas são usadas para identificar um loop com um rótulo, permitindo que `break` e `continue` saiam de um loop específico, especialmente útil em loops aninhados.
+>> #### Sintaxe:
+>> ```javascript
+>> rotulo: {
+>>   // Código a ser executado
+>> }
+>> ```
+>> #### Exemplo:
+>> ```javascript
+>> externo: for (let i = 0; i < 3; i++) {
+>>   for (let j = 0; j < 3; j++) {
+>>     if (i === 1 && j === 1) {
+>>       break externo;
+>>     }
+>>     console.log(`i = ${i}, j = ${j}`);
+>>   }
+>> }
+>> ```
+>> - O loop externo será interrompido quando `i` for igual a 1 e `j` for igual a 1.
+>> - O console mostrará `i = 0, j = 0`, `i = 0, j = 1`, `i = 0, j = 2`, `i = 1, j = 0`.
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - loops e iterações](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+<br>
+<hr>
+<h3 align="center"> Não esqueça de sempre praticar; Aprender nunca é demais, cada passo conta!</h3>
+<hr>
+
+![Diagrama Mermaid](/assets/image/controleDeFluxo.svg)
 >> # LOADING...
