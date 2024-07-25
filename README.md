@@ -1684,4 +1684,242 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 <hr>
 
 ![Diagrama Mermaid](/assets/image/controleDeFluxo.svg)
+
+>> ## Controle de Fluxo em JavaScript
+>> O controle de fluxo determina a ordem na qual as instruções do seu código são executadas. Ele permite que você execute diferentes blocos de código dependendo das condições que você define. Vamos explorar os principais conceitos: condicionais e manipulação de exceções.
+>> ### Condicionais
+>> Os condicionais são estruturas que permitem executar diferentes blocos de código com base em uma condição. Os principais tipos de condicionais são `if`, `if...else`, `else if...else`, e `switch`.
+>> ### # Sobre: `if`
+>> A estrutura básica do `if` permite executar um bloco de código se uma condição for verdadeira.
+>> ```javascript
+>> let idade = 18; // Declarando uma variável idade com o valor 18
+>> 
+>> // Verificando se a idade é maior ou igual a 18
+>> if (idade >= 18) {
+>>     console.log("Você é maior de idade."); // Será exibido no console se a condição for verdadeira
+>> }
+>> // Saída: Você é maior de idade.
+>> ```
+>> Se `idade` é maior ou igual a 18, a mensagem "Você é maior de idade." é exibida no console.
+>> ### # Sobre: `if...else`
+>> O `if...else` permite executar um bloco de código se a condição for verdadeira e outro bloco se a condição for falsa.
+>> ```javascript
+>> let idade = 16; // Declarando uma variável idade com o valor 16
+>> 
+>> // Verificando se a idade é maior ou igual a 18
+>> if (idade >= 18) {
+>>     console.log("Você é maior de idade."); // Será exibido no console se a condição for verdadeira
+>> } else {
+>>     console.log("Você é menor de idade."); // Será exibido no console se a condição for falsa
+>> }
+>> // Saída: Você é menor de idade.
+>> ```
+>> Se `idade` for menor que 18, o bloco dentro do `else` será executado.
+>> ### # Sobre: `else if...else`
+>> O `else if...else` é útil quando você tem múltiplas condições a serem verificadas.
+>> ```javascript
+>> let nota = 85; // Declarando uma variável nota com o valor 85
+>> 
+>> // Verificando a faixa de valores da nota
+>> if (nota >= 90) {
+>>     console.log("Nota A"); // Será exibido se nota for maior ou igual a 90
+>> } else if (nota >= 80) {
+>>     console.log("Nota B"); // Será exibido se nota for maior ou igual a 80 e menor que 90
+>> } else if (nota >= 70) {
+>>     console.log("Nota C"); // Será exibido se nota for maior ou igual a 70 e menor que 80
+>> } else {
+>>     console.log("Nota abaixo de C"); // Será exibido se nota for menor que 70
+>> }
+>> // Saída: Nota B
+>> ```
+>> A primeira condição que for verdadeira determina qual bloco de código será executado. Neste caso, `nota` é 85, então "Nota B" é exibida.
+>> ### # Sobre: `switch`
+>> O `switch` é uma alternativa ao `if...else` quando você tem várias condições baseadas em uma única variável.
+>> ```javascript
+>> let dia = 3; // Declarando uma variável dia com o valor 3
+>> 
+>> // Verificando o valor da variável dia
+>> switch (dia) {
+>>     case 1:
+>>         console.log("Domingo"); // Será exibido se dia for igual a 1
+>>         break;
+>>     case 2:
+>>         console.log("Segunda-feira"); // Será exibido se dia for igual a 2
+>>         break;
+>>     case 3:
+>>         console.log("Terça-feira"); // Será exibido se dia for igual a 3
+>>         break;
+>>     default:
+>>         console.log("Dia inválido"); // Será exibido se dia não for igual a nenhum dos casos acima
+>> }
+>> // Saída: Terça-feira
+>> ```
+>> O `switch` compara o valor da variável `dia` com cada `case`. Quando encontra uma correspondência (3), o código dentro desse `case` é executado até encontrar um `break`.
+>
+> <br>
+>
+>> ### Manipulação de Exceções
+>> A manipulação de exceções permite lidar com erros que ocorrem durante a execução do código. Os principais componentes são `throw`, `try`, `catch`, `finally`, e objetos de erro.
+>> ### # Declaração `throw`
+>> O `throw` é usado para lançar uma exceção quando você deseja sinalizar que algo deu errado.
+>> ```javascript
+>> // Função para verificar a idade
+>> function verificarIdade(idade) {
+>>     if (idade < 0) {
+>>         throw new Error("Idade não pode ser negativa"); // Lançando um erro se a idade for negativa
+>>     }
+>>     console.log("Idade válida"); // Será exibido se a idade for válida
+>> }
+>> 
+>> try {
+>>     verificarIdade(-5); // Chamando a função com uma idade negativa
+>> } catch (error) {
+>>     console.log(error.message); // Capturando e exibindo a mensagem de erro
+>> }
+>> // Saída: Idade não pode ser negativa
+>> ```
+>> Se a `idade` for negativa, um erro é lançado com a mensagem "Idade não pode ser negativa". O bloco `try...catch` captura esse erro.
+>> ### # Sobre: `try...catch`
+>> O `try...catch` é usado para capturar e tratar erros que ocorrem dentro do bloco `try`.
+>> ```javascript
+>> try {
+>>     let resultado = 10 / 0; // Tentativa de divisão por zero, mas não gera erro em JavaScript, apenas Infinity
+>>     console.log(resultado); // Exibirá Infinity
+>> } catch (error) {
+>>     console.log("Ocorreu um erro: " + error.message); // Não será executado neste caso
+>> } finally {
+>>     console.log("Bloco finally executado."); // Será sempre executado
+>> }
+>> // Saída: 
+>> // Infinity
+>> // Bloco finally executado.
+>> ```
+>> O código dentro do `try` é executado. Se um erro ocorrer, o bloco `catch` captura o erro e você pode tratá-lo conforme necessário. O `finally` é sempre executado, independentemente de um erro ocorrer ou não.
+>> ### # Bloco `finally`
+>> O bloco `finally` é opcional e é sempre executado após o bloco `try`, independentemente de um erro ter ocorrido ou não.
+>> ```javascript
+>> try {
+>>     console.log("Tentando executar o código..."); // Exibindo uma mensagem
+>>     throw new Error("Erro intencional"); // Lançando um erro intencionalmente
+>> } catch (error) {
+>>     console.log("Erro capturado: " + error.message); // Capturando e exibindo a mensagem de erro
+>> } finally {
+>>     console.log("Bloco finally executado."); // Será sempre executado
+>> }
+>> // Saída:
+>> // Tentando executar o código...
+>> // Erro capturado: Erro intencional
+>> // Bloco finally executado.
+>> ```
+>> O `finally` é útil para garantir que certas operações, como fechar arquivos ou liberar recursos, sejam sempre realizadas, independentemente de o código ter executado com sucesso ou ter lançado um erro.
+>
+> <br>
+> 
+>> ### Objetos de Erro (Error Objects)
+>> Os objetos de erro são usados para criar instâncias de erros em JavaScript. Eles fornecem informações detalhadas sobre o erro ocorrido.
+>> ### # Erro Padrão (Error)
+>> ```javascript
+>> try {
+>>     throw new Error("Erro genérico"); // Lançando um erro genérico
+>> } catch (error) {
+>>     console.log("Nome do erro: " + error.name); // Exibindo o nome do erro
+>>     console.log("Mensagem do erro: " + error.message); // Exibindo a mensagem do erro
+>> } finally {
+>>     console.log("Bloco finally executado."); // Será sempre executado
+>> }
+>> // Saída:
+>> // Nome do erro: Error
+>> // Mensagem do erro: Erro genérico
+>> // Bloco finally executado.
+>> ```
+>> `Error` é o tipo básico de erro em JavaScript. Ele é utilizado para criar erros genéricos. A mensagem do erro é "Erro genérico".
+>> ### # Tipo de Erro (TypeError)
+>> ```javascript
+>> try {
+>>     null.f(); // Tentativa de chamar um método em null, o que gera um TypeError
+>> } catch (error) {
+>>     console.log("Nome do erro: " + error.name); // Exibindo o nome do erro
+>>     console.log("Mensagem do erro: " + error.message); // Exibindo a mensagem do erro
+>> } finally {
+>>     console.log("Bloco finally executado."); // Será sempre executado
+>> }
+>> // Saída:
+>> // Nome do erro: TypeError
+>> // Mensagem do erro: Cannot read property 'f' of null
+>> // Bloco finally executado.
+>> ```
+>> `TypeError` ocorre quando um valor é utilizado de uma maneira incompatível com seu tipo. Aqui, tenta-se acessar a propriedade `f` de `null`, que não é um objeto.
+>> ### # Referência de Erro (ReferenceError)
+>> ```javascript
+>> try {
+>>     console.log(x); // x não está definido, o que gera um ReferenceError
+>> } catch (error) {
+>>     console.log("Nome do erro: " + error.name); // Exibindo o nome do erro
+>>     console.log("Mensagem do erro: " + error.message); // Exibindo a mensagem do erro
+>> } finally {
+>>     console.log("Bloco finally executado."); // Será sempre executado
+>> }
+>> // Saída:
+>> // Nome do erro: ReferenceError
+>> // Mensagem do erro: x is not defined
+>> // Bloco finally executado.
+>> ```
+>> `ReferenceError` ocorre quando se tenta acessar uma variável que não está definida. Aqui, `x` não foi declarado anteriormente.
+>> ### # Faixa de Erro (RangeError)
+>> ```javascript
+>> try {
+>>     let x = 1;
+>>     x.toPrecision(500); // Tentativa de usar um valor fora do intervalo permitido, o que gera um RangeError
+>> } catch (error) {
+>>     console.log("Nome do erro: " + error.name); // Exibindo o nome do erro
+>>     console.log("Mensagem do erro: " + error.message); // Exibindo a mensagem do erro
+>> } finally {
+>>     console.log("Bloco finally executado."); // Será sempre executado
+>> }
+>> // Saída:
+>> // Nome do erro: RangeError
+>> // Mensagem do erro: toPrecision() argument must be between 1 and 100
+>> // Bloco finally executado.
+>> ```
+>> `RangeError` ocorre quando um valor não está dentro do intervalo ou conjunto de valores permitidos. Aqui, o argumento para `toPrecision` está fora do intervalo aceitável (1 a 100).
+>> ### # Sintaxe de Erro (SyntaxError)
+>> ```javascript
+>> try {
+>>     eval('foo bar'); // Tentativa de executar uma sintaxe inválida, o que gera um SyntaxError
+>> } catch (error) {
+>>     console.log("Nome do erro: " + error.name); // Exibindo o nome do erro
+>>     console.log("Mensagem do erro: " + error.message); // Exibindo a mensagem do erro
+>> } finally {
+>>     console.log("Bloco finally executado."); // Será sempre executado
+>> }
+>> // Saída:
+>> // Nome do erro: SyntaxError
+>> // Mensagem do erro: Unexpected identifier
+>> // Bloco finally executado.
+>> ```
+>> `SyntaxError` ocorre quando o código não é sintaticamente válido. Aqui, `eval` tenta executar um código que não é uma expressão JavaScript válida.
+>> ### # URI de Erro (URIError)
+>> ```javascript
+>> try {
+>>     decodeURIComponent('%'); // Tentativa de decodificar uma URI inválida, o que gera um URIError
+>> } catch (error) {
+>>     console.log("Nome do erro: " + error.name); // Exibindo o nome do erro
+>>     console.log("Mensagem do erro: " + error.message); // Exibindo a mensagem do erro
+>> } finally {
+>>     console.log("Bloco finally executado."); // Será sempre executado
+>> }
+>> // Saída:
+>> // Nome do erro: URIError
+>> // Mensagem do erro: URI malformed
+>> // Bloco finally executado.
+>> ```
+>> `URIError` ocorre quando as funções globais `encodeURI`, `decodeURI`, `encodeURIComponent`, ou `decodeURIComponent` recebem uma URI malformada. Aqui, `%` não é um componente válido.
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - if...else](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else), [MDN - switch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch), [MDN - try...catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch), [MDN - Error Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
+
+<br>
+<hr>
+<h3 align="center"> Não se esqueça de sempre praticar; você não aprende a tocar um instrumento apenas assistindo.</h3>
+<hr>
+
+![Diagrama Mermaid](/assets/image/expressoesOperadores.svg)
 >> # LOADING...
