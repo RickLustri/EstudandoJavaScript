@@ -1922,4 +1922,261 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 <hr>
 
 ![Diagrama Mermaid](/assets/image/expressoesOperadores.svg)
->> # LOADING...
+
+>> ## Expressões e Operadores
+>> Em JavaScript, expressões são combinações de valores, variáveis e operadores que são avaliadas para produzir um resultado. Uma expressão pode ser tão simples quanto um número ou uma string, ou tão complexa quanto uma função invocada com argumentos e operadores aninhados.
+>> 
+>> Operadores são símbolos ou palavras-chave que indicam ao JavaScript para realizar operações específicas sobre os operandos. Eles permitem manipular dados e variáveis para realizar cálculos, comparar valores, executar operações lógicas, entre outras tarefas. Os operadores são fundamentais para construir expressões que compõem a lógica do código.
+>> 
+>> ### # Aqui estão algumas categorias principais de operadores:
+>> **Operadores Aritméticos**: Realizam operações matemáticas básicas como adição, subtração, multiplicação, divisão e mais.\
+>> **Operadores de Comparação**: Comparam valores e retornam um booleano (verdadeiro ou falso).\
+>> **Operadores Lógicos**: Combinações de expressões booleanas.\
+>> **Operadores Condicionais**: Avaliam uma condição e retornam um valor baseado na condição.\
+>> **Operadores Unários**: Operam em um único operando para produzir um novo valor.\
+>> **Operadores Bit a Bit**: Operam diretamente sobre os bits dos operandos.\
+>> **Operadores de Atribuição**: Atribuem valores às variáveis e podem incluir operações aritméticas.
+>> 
+>> ### # Operadores Aritméticos
+>> Os operadores aritméticos realizam operações matemáticas básicas, como adição, subtração, multiplicação, divisão e outras operações relacionadas. Eles são essenciais para manipular números e realizar cálculos dentro do código.
+>> 
+>> #### **Adição (`+`)**: Soma dois números.
+>> ```javascript
+>> let a = 5;
+>> let b = 3;
+>> console.log(a + b); // Saída: 8
+>> // Aqui, `5 + 3` resulta em `8`.
+>> ```
+>> #### **Subtração (`-`)**: Subtrai o segundo número do primeiro.
+>> ```javascript
+>> console.log(a - b); // Saída: 2
+>> // Aqui, `5 - 3` resulta em `2`.
+>> ```
+>> #### **Multiplicação (`*`)**: Multiplica dois números.
+>> ```javascript
+>> console.log(a * b); // Saída: 15
+>> // Aqui, `5 * 3` resulta em `15`.
+>> ```
+>> #### **Divisão (`/`)**: Divide o primeiro número pelo segundo.
+>> ```javascript
+>> console.log(a / b); // Saída: 1.6667
+>> // Aqui, `5 / 3` resulta em aproximadamente `1.6667`.
+>> ```
+>> #### **Módulo (`%`)**: Retorna o resto da divisão do primeiro número pelo segundo.
+>> ```javascript
+>> console.log(a % b); // Saída: 2
+>> // Aqui, `5 % 3` resulta em `2` porque 5 dividido por 3 dá 1 com um resto de 2.
+>> ```
+>> #### **Exponenciação (`**`)**: Eleva o primeiro número à potência do segundo.
+>> ```javascript
+>> console.log(a ** b); // Saída: 125
+>> // Aqui, `5 ** 3` (5 elevado a 3) resulta em `125`.
+>> ```
+>
+> <br>
+>
+>> ### # **Operadores de Atribuição Aritmética**:
+>> Os operadores de atribuição são usados para atribuir valores às variáveis. Eles podem incluir operações aritméticas junto com a atribuição, como adicionar e atualizar uma variável com um novo valor (+=, -=, *=).
+>> 
+>> #### **Atribuição de Adição (`+=`)**: Adiciona um valor à variável e a atualiza.
+>> ```javascript
+>> let x = 10;
+>> x += 5; // Equivale a x = x + 5
+>> console.log(x); // Saída: 15
+>> // Aqui, `x` inicialmente vale `10`. `x += 5` faz `x` se tornar `15`.
+>> ```
+>> #### **Atribuição de Subtração (`-=`)**: Subtrai um valor da variável e a atualiza.
+>> ```javascript
+>> x -= 3; // Equivale a x = x - 3
+>> console.log(x); // Saída: 12
+>> // Aqui, `x` inicialmente vale `15`. `x -= 3` faz `x` se tornar `12`.
+>> ```
+>> #### **Atribuição de Multiplicação (`*=`)**: Multiplica a variável por um valor e a atualiza.
+>> ```javascript
+>> x *= 2; // Equivale a x = x * 2
+>> console.log(x); // Saída: 24
+>> // Aqui, `x` inicialmente vale `12`. `x *= 2` faz `x` se tornar `24`.
+>> ```
+>> #### **Atribuição de Divisão (`/=`)**: Divide a variável por um valor e a atualiza.
+>> ```javascript
+>> x /= 4; // Equivale a x = x / 4
+>> console.log(x); // Saída: 6
+>> // Aqui, `x` inicialmente vale `24`. `x /= 4` faz `x` se tornar `6`.
+>> ```
+>> #### **Atribuição de Módulo (`%=`)**: Calcula o módulo da variável por um valor e a atualiza.
+>> ```javascript
+>> x %= 4; // Equivale a x = x % 4
+>> console.log(x); // Saída: 2
+>> // Aqui, `x` inicialmente vale `6`. `x %= 4` faz `x` se tornar `2`.
+>> ```
+>> #### **Atribuição de Exponenciação (`**=`)**: Eleva a variável à potência de um valor e a atualiza.
+>> ```javascript
+>> x **= 2; // Equivale a x = x ** 2
+>> console.log(x); // Saída: 4
+>> // Aqui, `x` inicialmente vale `2`. `x **= 2` faz `x` se tornar `4`.
+>> ```
+>
+> <br>
+>
+>> ### # Operadores de Comparação
+>> Os operadores de comparação comparam dois valores e retornam um resultado booleano, true ou false, dependendo se a comparação é verdadeira ou falsa. Esses operadores são úteis para tomar decisões com base na comparação de valores.
+>> 
+>> #### **Maior que (`>`)**: Verifica se o valor à esquerda é maior que o valor à direita.
+>> ```javascript
+>> console.log(10 > 5); // Saída: true
+>> // Aqui, `10 > 5` é verdadeiro, então a saída é `true`.
+>> ```
+>> #### **Menor que (`<`)**: Verifica se o valor à esquerda é menor que o valor à direita.
+>> ```javascript
+>> console.log(10 < 5); // Saída: false
+>> // Aqui, `10 < 5` é falso, então a saída é `false`.
+>> ```
+>> #### **Maior ou igual a (`>=`)**: Verifica se o valor à esquerda é maior ou igual ao valor à direita.
+>> ```javascript
+>> console.log(10 >= 5); // Saída: true
+>> // Aqui, `10 >= 5` é verdadeiro, então a saída é `true`.
+>> ```
+>> #### **Menor ou igual a (`<=`)**: Verifica se o valor à esquerda é menor ou igual ao valor à direita.
+>> ```javascript
+>> console.log(10 <= 5); // Saída: false
+>> // Aqui, `10 <= 5` é falso, então a saída é `false`.
+>> ```
+>> #### **Igual a (`==`)**: Verifica se os valores são iguais, sem considerar o tipo.
+>> ```javascript
+>> console.log(5 == "5"); // Saída: true
+>> // Aqui, `5 == "5"` é verdadeiro porque o operador `==` não verifica o tipo.
+>> ```
+>> #### **Estritamente igual a (`===`)**: Verifica se os valores e tipos são iguais.
+>> ```javascript
+>> console.log(5 === "5"); // Saída: false
+>> // Aqui, `5 === "5"` é falso porque o tipo `number` não é igual ao tipo `string`.
+>> ```
+>> #### **Diferente de (`!=`)**: Verifica se os valores não são iguais, sem considerar o tipo.
+>> ```javascript
+>> console.log(5 != "5"); // Saída: false
+>> // Aqui, `5 != "5"` é falso porque o operador `!=` não verifica o tipo.
+>> ```
+>> #### **Estritamente diferente de (`!==`)**: Verifica se os valores e tipos não são iguais.
+>> ```javascript
+>> console.log(5 !== "5"); // Saída: true
+>> // Aqui, `5 !== "5"` é verdadeiro porque o tipo `number` não é igual ao tipo `string`.
+>> ```
+>
+> <br>
+>
+>> ### # Operadores Lógicos
+>> Os operadores lógicos permitem combinar várias expressões booleanas em uma única expressão complexa. Eles retornam um resultado booleano e são usados para testar múltiplas condições ao mesmo tempo.
+>> 
+>> #### **OR lógico (`||`)**: Retorna `true` se pelo menos uma das expressões for verdadeira.
+>> ```javascript
+>> console.log(true || false); // Saída: true
+>> // Aqui, `true || false` é verdadeiro porque pelo menos uma das expressões é verdadeira.
+>> ```
+>> #### **AND lógico (`&&`)**: Retorna `true` somente se ambas as expressões forem verdadeiras.
+>> ```javascript
+>> console.log(true && false); // Saída: false
+>> // Aqui, `true && false` é falso porque uma das expressões é falsa.
+>> ```
+>> #### **NOT lógico (`!`)**: Inverte o valor booleano da expressão.
+>> ```javascript
+>> console.log(!true); // Saída: false
+>> // Aqui, `!true` inverte `true` para `false`.
+>> ```
+>> #### **Coalescência nula (`??`)**: Retorna o valor do lado esquerdo se ele não for `null` ou `undefined`; caso contrário, retorna o valor do lado direito.
+>> ```javascript
+>> let nome = null;
+>> let saudacao = nome ?? "Visitante";
+>> console.log(saudacao); // Saída: "Visitante"
+>> // Aqui, `nome` é `null`, então `nome ?? "Visitante"` retorna `"Visitante"`.
+>> ```
+>
+> <br>
+>
+>> ### Operadores Unários
+>> Os operadores unários operam em um único operando para produzir um novo valor. Exemplos incluem incrementar (++) ou decrementar (--) um valor, e operadores lógicos como a negação (!).
+>> 
+>> #### **Incremento (`++`)**: Aumenta o valor da variável em 1.
+>> ```javascript
+>> let numero = 5;
+>> numero++;
+>> console.log(numero); // Saída: 6
+>> // Aqui, `numero` inicialmente vale `5`. `numero++` faz `numero` se tornar `6`.
+>> ```
+>> #### **Decremento (`--`)**: Diminui o valor da variável em 1.
+>> ```javascript
+>> numero--;
+>> console.log(numero); // Saída: 5
+>> // Aqui, `numero` inicialmente vale `6`. `numero--` faz `numero` se tornar `5`.
+>> ```
+>
+> <br>
+> 
+>> ### # Operadores Bit a Bit
+>> Os operadores bit a bit operam diretamente sobre os bits dos operandos. Eles realizam operações a nível de bit, como AND, OR, XOR, e deslocamentos de bits, permitindo manipulações detalhadas dos dados binários.
+>> 
+>> #### **AND bit a bit (`&`)**: Realiza a operação AND em cada bit dos operandos.
+>> ```javascript
+>> console.log(5 & 3); // Saída: 1 (0101 & 0011 = 0001)
+>> // Aqui, `5 & 3` compara os bits `0101` e `0011`, resultando em `0001`, que é `1` em decimal.
+>> ```
+>> #### **OR bit a bit (`|`)**: Realiza a operação OR em cada bit dos operandos.
+>> ```javascript
+>> console.log(5 | 3); // Saída: 7 (0101 | 0011 = 0111)
+>> // Aqui, `5 | 3` compara os bits `0101` e `0011`, resultando em `0111`, que é `7` em decimal.
+>> ```
+>> #### **XOR bit a bit (`^`)**: Realiza a operação XOR em cada bit dos operandos.
+>> ```javascript
+>> console.log(5 ^ 3); // Saída: 6 (0101 ^ 0011 = 0110)
+>> // Aqui, `5 ^ 3` compara os bits `0101` e `0011`, resultando em `0110`, que é `6` em decimal.
+>> ```
+>> #### **NOT bit a bit (`~`)**: Inverte todos os bits do operando.
+>> ```javascript
+>> console.log(~5); // Saída: -6 (inverte 0101 para 1010)
+>> // Aqui, `~5` inverte os bits `0101` para `1010`, que é `-6` em decimal devido à representação de complemento de dois.
+>> ```
+>> #### **Deslocamento para a esquerda (`<<`)**: Desloca os bits do operando para a esquerda.
+>> ```javascript
+>> console.log(5 << 1); // Saída: 10 (0101 << 1 = 1010)
+>> // Aqui, `5 << 1` desloca os bits `0101` para a esquerda por um bit, resultando em `1010`, que é `10` em decimal.
+>> ```
+>> #### **Deslocamento para a direita (`>>`)**: Desloca os bits do operando para a direita, mantendo o sinal.
+>> ```javascript
+>> console.log(5 >> 1); // Saída: 2 (0101 >> 1 = 0010)
+>> // Aqui, `5 >> 1` desloca os bits `0101` para a direita por um bit, resultando em `0010`, que é `2` em decimal.
+>> ```
+>> #### **Deslocamento para a direita sem sinal (`>>>`)**: Desloca os bits do operando para a direita, preenchendo com zeros.
+>> ```javascript
+>> console.log(5 >>> 1); // Saída: 2 (0101 >>> 1 = 0010)
+>> // Aqui, `5 >>> 1` desloca os bits `0101` para a direita por um bit, resultando em `0010`, que é `2` em decimal. A diferença para `>>` é que `>>>` não preserva o sinal.
+>> ```
+>
+> <br>
+>
+>> ### # Operadores na String
+>> Os operadores na string são usados principalmente para concatenar strings, unindo duas ou mais strings em uma única string. Isso é útil para construir mensagens dinâmicas, combinar variáveis de texto e manipular dados textuais.
+>> 
+>> #### **Concatenação (`+`)**: Junta duas ou mais strings.
+>> ```javascript
+>> let nome = "Henrique";
+>> let saudacao = "Olá, " + nome + "!";
+>> console.log(saudacao); // Saída: "Olá, Henrique!"
+>> // Aqui, `"Olá, " + nome + "!"` concatena as strings `"Olá, "`, `nome` e `"!"`, resultando em `"Olá, Henrique!"`.
+>> ```
+>
+> <br>
+>
+>> ### # Operadores Condicionais
+>> Os operadores condicionais são usados para avaliar uma condição e retornar um valor baseado nessa condição. O operador condicional ternário é um exemplo comum.
+>> 
+>> #### Sintaxe:
+>> ```javascript
+>> condição ? valorCasoVerdadeiro : valorCasoFalso
+>> ```
+>> #### Exemplo:
+>> ```javascript
+>> let idade = 18;
+>> let podeDirigir = idade >= 18 ? "Sim, pode dirigir." : "Não, não pode dirigir.";
+>> console.log(podeDirigir); // Saída: Sim, pode dirigir.
+>> ```
+>> Neste exemplo, o operador condicional ? é usado para verificar se a idade é maior ou igual a 18. Se a condição for verdadeira (idade >= 18), o valor "Sim, pode dirigir." é retornado. Caso contrário, "Não, não pode dirigir." é retornado. O resultado é então exibido no console.
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [W3S - Operators](https://www.w3schools.com/js/js_operators.asp), [W3S - Arithmetic](https://www.w3schools.com/js/js_arithmetic.asp), [W3S - Comparison and Logical Operators](https://www.w3schools.com/js/js_comparisons.asp), [W3S - Strings](https://www.w3schools.com/js/js_strings.asp)
