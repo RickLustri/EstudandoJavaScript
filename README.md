@@ -1,17 +1,21 @@
 <h1 align="center"> Estudando JavaScript</h1>
 
-![Diagrama Mermaid](/assets/image/introducaojs.svg)
-
+>![Diagrama Mermaid](/assets/image/introducaojs.svg)
 >> ## O que é JavaScript?
 >> JavaScript é uma linguagem de programação de alto nível, interpretada e orientada a objetos. É uma das principais tecnologias da web, juntamente com HTML e CSS. É amplamente utilizada para criar páginas web interativas, aplicativos web e servidores. JavaScript permite a manipulação dinâmica de conteúdo, controle de multimídia, animação de gráficos e muito mais.
 >
->> 
+><br>
+> 
 >> ## História do JavaScript
 >> avaScript foi criado por Brendan Eich em 1995 enquanto trabalhava na Netscape. Desenvolvida em apenas dez dias, a linguagem foi inicialmente chamada de Mocha, depois LiveScript, e finalmente JavaScript. Seu objetivo era adicionar interatividade a páginas web. Em 1996, a Microsoft lançou o JScript, e para garantir a compatibilidade entre navegadores, JavaScript foi padronizado pela Ecma International como ECMAScript em 1997.\
 Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento web, com o surgimento de bibliotecas e frameworks como [jQuery](https://jquery.com/), [Angular](https://angular.io/), [React](https://reactjs.org/), e [Vue.js](https://vuejs.org/), além da plataforma [Node.js](https://nodejs.org/), que permite a execução no lado do servidor. Hoje, JavaScript é amplamente utilizado e continua a evoluir, permanecendo crucial para experiências web dinâmicas.
 >
+><br>
+>
 >> ## Versões do JavaScript
 >> JavaScript, inventado por Brendan Eich, alcançou o status de um padrão ECMA em 1997 e adotou o nome oficial ECMAScript. Esta linguagem evoluiu através de várias versões, nomeadamente [ES1](https://262.ecma-international.org/1.0/), [ES2](https://262.ecma-international.org/2.0/), [ES3](https://262.ecma-international.org/3.0/), [ES5](https://262.ecma-international.org/5.1/), e a transformadora [ES6](https://262.ecma-international.org/6.0/). Estas atualizações desempenharam um papel crucial na melhoria e padronização do JavaScript, tornando-o amplamente utilizado e valioso no campo em constante mudança do desenvolvimento web.
+>
+><br>
 >
 >> ## Como executar JavaScript?
 >>
@@ -79,11 +83,8 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 <hr>
 <br>
 
-![Diagrama Mermaid](/assets/image/variaveis.svg)
-
-
->> ## Declarações de Variáveis
-> 
+> ![Diagrama Mermaid](/assets/image/variaveis.svg)
+>> ## Declarações de Variáveis 
 >> ### # `Var`
 >> **Declaração:**\
 >> Você pode declarar uma variável usando `var` da seguinte maneira:
@@ -432,8 +433,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 <h3 align="center"> Não esqueça de sempre praticar; você não aprende a andar de bicicleta apenas olhando... essa frase não é sobre bicicleta.</h3>
 <hr>
 
-![Diagrama Mermaid](/assets/image/tipoDeDados.svg)
-
+> ![Diagrama Mermaid](/assets/image/tipoDeDados.svg)
 >> ## Tipos de Dados Primitivos
 >> Em JavaScript, os dados primitivos são os blocos de construção fundamentais que não são objetos e não possuem métodos ou propriedades. Cada tipo primitivo representa um único valor básico e imutável. A seguir, vamos explorar cada um dos sete tipos de dados primitivos em JavaScript, juntamente com exemplos práticos para ilustrar suas características e usos.
 > 
@@ -1033,8 +1033,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 <h3 align="center"> Não esqueça de sempre praticar; você não aprende a andar de skate apenas olhando... essa frase não é sobre skate.</h3>
 <hr>
 
-![Diagrama Mermaid](/assets/image/conversaoDeTipos.svg)
-
+> ![Diagrama Mermaid](/assets/image/conversaoDeTipos.svg)
 >> ## Conversão de Tipos (Type Casting)
 >> **Type Casting** refere-se ao processo de transformar um valor de um tipo de dado para outro tipo. Em JavaScript, isso pode ser feito de forma explícita ou implícita.
 >> ### # Conversão de tipo explícito (Explicit Type Casting)
@@ -1124,8 +1123,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 <h3 align="center"> Não esqueça de sempre praticar; você não aprende a andar de patinete apenas olhando... essa frase não é sobre patinete.</h3>
 <hr>
 
-![Diagrama Mermaid](/assets/image/estruturaDeDados.svg)
-
+> ![Diagrama Mermaid](/assets/image/estruturaDeDados.svg)
 >> ## Estruturas de Dados
 >> As estruturas de dados são formas organizadas de armazenar e manipular informações em um computador. Elas são fundamentais para a eficiência dos algoritmos e do desempenho dos programas. Vamos explorar algumas das principais categorias de estruturas de dados em detalhes.
 >> ### Coleções Indexadas (Indexed collections)
@@ -1396,8 +1394,7 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 <h3 align="center"> Não esqueça de sempre praticar; você não aprende a programar apenas olhando... essa sim! essa frase é sobre programar.</h3>
 <hr>
 
-![Diagrama Mermaid](/assets/image/conparacaoDeIgualdade.svg)
-
+> ![Diagrama Mermaid](/assets/image/conparacaoDeIgualdade.svg)
 >> ## Comparação de Igualdade
 >> Comparações de igualdade são fundamentais em JavaScript para verificar se dois valores são iguais. Existem diferentes operadores e algoritmos para fazer essas comparações, cada um com suas particularidades. Vamos explorar os principais operadores de comparação de valor e os algoritmos de igualdade em detalhes.
 >> ### # Operador de Comparação 
@@ -1516,8 +1513,7 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 <h3 align="center"> Não esqueça de sempre praticar; você não aprende a jogar bola apenas olhando... essa frase não é sobre jogar bola.</h3>
 <hr>
 
-![Diagrama Mermaid](/assets/image/loopsEiteracoes.svg)
-
+> ![Diagrama Mermaid](/assets/image/loopsEiteracoes.svg)
 >> ## loops e Iterações
 >> ### # Loop "for"
 >> O loop `for` é uma estrutura de repetição que permite executar um bloco de código um número específico de vezes. Ele é útil quando você sabe com antecedência quantas vezes deseja repetir uma operação.
@@ -1683,8 +1679,7 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 <h3 align="center"> Não esqueça de sempre praticar; Aprender nunca é demais, cada passo conta!</h3>
 <hr>
 
-![Diagrama Mermaid](/assets/image/controleDeFluxo.svg)
-
+> ![Diagrama Mermaid](/assets/image/controleDeFluxo.svg)
 >> ## Controle de Fluxo em JavaScript
 >> O controle de fluxo determina a ordem na qual as instruções do seu código são executadas. Ele permite que você execute diferentes blocos de código dependendo das condições que você define. Vamos explorar os principais conceitos: condicionais e manipulação de exceções.
 >> ### Condicionais
@@ -1915,14 +1910,12 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 >> ```
 >> `URIError` ocorre quando as funções globais `encodeURI`, `decodeURI`, `encodeURIComponent`, ou `decodeURIComponent` recebem uma URI malformada. Aqui, `%` não é um componente válido.
 >> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - if...else](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else), [MDN - switch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch), [MDN - try...catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch), [MDN - Error Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
-
 <br>
 <hr>
 <h3 align="center"> Não se esqueça de sempre praticar; você não aprende a tocar um instrumento apenas assistindo.</h3>
 <hr>
 
-![Diagrama Mermaid](/assets/image/expressoesOperadores.svg)
-
+> ![Diagrama Mermaid](/assets/image/expressoesOperadores.svg)
 >> ## Expressões e Operadores
 >> Em JavaScript, expressões são combinações de valores, variáveis e operadores que são avaliadas para produzir um resultado. Uma expressão pode ser tão simples quanto um número ou uma string, ou tão complexa quanto uma função invocada com argumentos e operadores aninhados.
 >> 
@@ -2180,3 +2173,219 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 >> ```
 >> Neste exemplo, o operador condicional ? é usado para verificar se a idade é maior ou igual a 18. Se a condição for verdadeira (idade >= 18), o valor "Sim, pode dirigir." é retornado. Caso contrário, "Não, não pode dirigir." é retornado. O resultado é então exibido no console.
 >> > ##### OBS: Você pode aprender mais lendo esse artigo: [W3S - Operators](https://www.w3schools.com/js/js_operators.asp), [W3S - Arithmetic](https://www.w3schools.com/js/js_arithmetic.asp), [W3S - Comparison and Logical Operators](https://www.w3schools.com/js/js_comparisons.asp), [W3S - Strings](https://www.w3schools.com/js/js_strings.asp)
+
+<br>
+<hr>
+<h3 align="center"> Não se esqueça de sempre praticar; você não aprende a tocar um instrumento apenas assistindo.</h3>
+<hr>
+
+> ![Diagrama Mermaid](/assets/image/functions.svg)
+>> ## 0. Functions (Funções)
+>> As funções em JavaScript são blocos de código que realizam uma tarefa específica. Elas podem receber dados de entrada (parâmetros) e retornar um resultado. Funções ajudam a modularizar o código, tornando-o mais organizado e reutilizável.
+>> ```javascript
+>> // Definição de uma função chamada 'dizerOla' que recebe um parâmetro 'nome'
+>> function dizerOla(nome) {
+>>   // A função imprime uma mensagem de saudação no console
+>>   console.log("Olá, " + nome);
+>> }
+>> 
+>> // Chamada da função 'dizerOla' passando o argumento 'Henrique'
+>> dizerOla("Henrique"); // Saída: Olá, Henrique
+>> ```
+>> ### # Parâmetros de função
+>> Os parâmetros de função são variáveis listadas como parte da definição da função. Eles permitem que você passe informações para a função.
+>> 
+>> #### Parâmetros Padrão
+>> Os parâmetros padrão permitem inicializar parâmetros com valores padrão se nenhum valor ou `undefined` for passado. Isso é útil para evitar erros quando a função é chamada sem todos os argumentos necessários.
+>> ```javascript
+>> // Definição da função 'dizerOla' com um parâmetro padrão 'nome' com valor "Sem Nome"
+>> function dizerOla(nome = "Sem Nome") {
+>>   // A função imprime uma mensagem de saudação no console
+>>   console.log("Olá, " + name);
+>> }
+>> 
+>> // Chamada da função 'dizerOla' sem passar argumentos
+>> dizerOla(); // Saída: Olá, Sem Nome
+>> 
+>> // Chamada da função 'dizerOla' passando o argumento 'Henrique'
+>> dizerOla("Henrique"); // Saída: Olá, Henrique
+>> ```
+>> #### Parâmetros Rest
+>> Os parâmetros rest permitem representar um número indefinido de argumentos como um array. Isso é útil quando você não sabe de antemão quantos argumentos serão passados para a função.
+>> ```javascript
+>> // Definição da função 'somar' que usa parâmetros rest 'numbers'
+>> function somar(...numbers) {
+>>   // A função usa o método 'reduce' para somar todos os números passados
+>>   return numbers.reduce((total, numero) => total + numero, 0);
+>> }
+>> 
+>> // Chamada da função 'somar' passando múltiplos argumentos
+>> console.log(somar(1, 2, 3)); // Saída: 6
+>> console.log(somar(4, 5, 6, 7)); // Saída: 22
+>> ```
+>
+> <br>
+>
+>> ### # Arrow Functions
+>> Arrow functions são uma sintaxe curta para declarar funções. Elas são mais concisas e têm algumas diferenças de comportamento em comparação com funções tradicionais, especialmente no que diz respeito ao `this`.
+>> ```javascript
+>> // Definição de uma arrow function 'add' que recebe dois parâmetros 'a' e 'b'
+>> const add = (a, b) => {
+>>   // A função retorna a soma de 'a' e 'b'
+>>   return a + b;
+>> };
+>> 
+>> // Chamada da função 'add' passando dois argumentos
+>> console.log(add(2, 3)); // Saída: 5
+>> 
+>> // Outra forma de definir uma arrow function que retorna implicitamente o resultado
+>> const mult = (a, b) => a * b;
+>> console.log(mult(4, 5)); // Saída: 20
+>> ```
+>
+> <br>
+>
+>> ### # IIFEs (Immediately Invoked Function Expressions)
+>> Uma IIFE é uma função que é executada imediatamente após sua definição. Isso é útil para criar um escopo local e evitar poluição do escopo global.
+>> ```javascript
+>> // Definição e invocação imediata de uma IIFE
+>> (function() {
+>>   // O código dentro da IIFE é executado imediatamente
+>>   console.log("Isso é um IIFE");
+>> })(); // Saída: Isso é um IIFE
+>> 
+>> // Outra forma de definir uma IIFE
+>> (() => {
+>>   console.log("Outro IIFE");
+>> })(); // Saída: Outro IIFE
+>> ```
+>
+> <br>
+>
+>> ### # Arguments object
+>> O objeto `arguments` é uma variável local disponível dentro de todas as funções. Ele contém uma entrada para cada argumento passado para a função, permitindo acesso a todos os argumentos, mesmo que a função não os declare explicitamente.
+>> ```javascript
+>> // Definição da função 'multiplicar' que usa o objeto 'arguments'
+>> function multiplicar() {
+>>   // Inicializa a variável 'produto' com o valor 1
+>>   let produto = 1;
+>>   
+>>   // Itera sobre os argumentos passados usando 'arguments.length'
+>>   for (let i = 0; i < arguments.length; i++) {
+>>     // Multiplica 'product' pelo argumento atual
+>>     produto *= arguments[i];
+>>   }
+>>   
+>>   // Retorna o resultado final
+>>   return produto;
+>> }
+>> 
+>> // Chamada da função 'multiplicar' passando múltiplos argumentos
+>> console.log(multiplicar(2, 3, 4)); // Saída: 24
+>> console.log(multiplicar(1, 2, 3, 4, 5)); // Saída: 120
+>> ```
+>
+> <br>
+>
+>> ### # Escopo e function stack
+>> O escopo refere-se ao contexto atual de execução, no qual valores e expressões são "visíveis" ou podem ser referenciados. A function stack (pilha de funções) é a pilha de execução de chamadas de funções.
+>> 
+>> #### Recursão
+>> Recursão ocorre quando uma função chama a si mesma. É útil para resolver problemas que podem ser divididos em subproblemas menores do mesmo tipo.
+>> ```javascript
+>> // Definição da função 'factorial' que calcula o fatorial de um número 'n'
+>> function factorial(n) {
+>>   // Caso base: se 'n' for 0, retorna 1
+>>   if (n === 0) return 1;
+>>   
+>>   // Chamada recursiva: multiplica 'n' pelo fatorial de 'n - 1'
+>>   return n * factorial(n - 1);
+>> }
+>> 
+>> // Chamada da função 'factorial' passando o argumento 5
+>> console.log(factorial(5)); // Saída: 120 (5*4*3*2*1)
+>> console.log(factorial(0)); // Saída: 1 (caso base)
+>> ```
+>> #### Lexical scoping
+>> Lexical scoping significa que o escopo de uma variável é determinado pelo local onde ela é definida no código escrito. Funções aninhadas têm acesso às variáveis do escopo externo.
+>> ```javascript
+>> // Definição da função 'dizer'
+>> function dizer() {
+>>   // Declara a variável 'frase' no escopo da função 'dizer'
+>>   let frase = "Ola, meu nome é Henrique";
+>>   
+>>   // Definição da função 'exibir' aninhada dentro de 'dizer'
+>>   function exibir() {
+>>     // A função 'exibir' tem acesso à variável 'frase' devido ao escopo léxico
+>>     console.log(frase);
+>>   }
+>>   
+>>   // Chamada da função 'exibit'
+>>   exibir();
+>> }
+>> 
+>> // Chamada da função 'dizer'
+>> dizer(); // Saída: Olá, meu nome é Henrique
+>> ```
+>> #### Closures
+>> Um closure é a combinação de uma função e o ambiente léxico no qual ela foi criada. Isso permite que a função acesse >> variáveis de seu escopo externo mesmo após o escopo externo ter sido executado.
+>> ```javascript
+>> // Definição da função 'makeCounter' que retorna uma função
+>> function makeCounter() {
+>>   // Declara a variável 'count' no escopo de 'makeCounter'
+>>   let count = 0;
+>>   
+>>   // Retorna uma função anônima que incrementa e retorna 'count'
+>>   return function() {
+>>     count++;
+>>     return count;
+>>   };
+>> }
+>> 
+>> // Chama a função 'makeCounter' e armazena o resultado na variável 'counter'
+>> const counter = makeCounter();
+>> 
+>> // Chama a função 'counter' várias vezes
+>> console.log(counter()); // Saída: 1
+>> console.log(counter()); // Saída: 2
+>> console.log(counter()); // Saída: 3
+>> ```
+>
+> <br>
+>
+>> ### # Funções incorporadas
+>> JavaScript possui várias funções incorporadas que fornecem funcionalidades comuns. Vamos ver alguns exemplos importantes.
+>> #### Exemplo: `parseInt` e `parseFloat`
+>> Essas funções analisam uma string e retornam um número inteiro ou de ponto flutuante, respectivamente.
+>> ```javascript
+>> // Usa 'parseInt' para converter uma string em um número inteiro
+>> console.log(parseInt("10")); // Saída: 10
+>> 
+>> // Usa 'parseFloat' para converter uma string em um número de ponto flutuante
+>> console.log(parseFloat("10.5")); // Saída: 10.5
+>> 
+>> // Exemplos com strings que contêm caracteres não numéricos
+>> console.log(parseInt("10abc")); // Saída: 10
+>> console.log(parseFloat("10.5abc")); // Saída: 10.5
+>> ```
+>> #### Exemplo: `setTimeout` e `setInterval`
+>> `setTimeout` executa uma função após um período de tempo, e `setInterval` executa uma função repetidamente com um intervalo de tempo fixo entre as execuções.
+>> ```javascript
+>> // Usa 'setTimeout' para executar uma função após 1 segundo (1000 ms)
+>> setTimeout(() => {
+>>   console.log("Isso é executado após 1 segundo");
+>> }, 1000); // Saída (após 1 segundo): Isso é executado após 1 segundo
+>> 
+>> // Usa 'setInterval' para executar uma função a cada 2 segundos (2000 ms)
+>> const intervalId = setInterval(() => {
+>>   console.log("Isso acontece a cada 2 segundos");
+>> }, 2000); // Saída (a cada 2 segundos): Isso acontece a cada 2 segundos
+>> 
+>> // Para parar o intervalo após 7 segundos
+>> setTimeout(() => {
+>>   clearInterval(intervalId);
+>>  
+>> 
+>>  console.log("Intervalo parado");
+>> }, 7000); // Saída (após 7 segundos): Intervalo parado
+>> ```
