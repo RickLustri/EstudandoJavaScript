@@ -2491,3 +2491,276 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 >> #### Conclusão:
 >> O modo estrito é uma maneira eficaz de melhorar a qualidade do seu código JavaScript, tornando-o mais seguro e menos propenso a erros. Adotar o modo estrito é uma prática recomendada, especialmente em projetos maiores ou ao trabalhar em equipe, para garantir que o código seja mais robusto e sustentável.
 >> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - Strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
+
+<br>
+<hr>
+<h3 align="center"> Não se esqueça de sempre praticar; você não aprende a tocar um instrumento apenas assistindo.</h3>
+<hr>
+
+> ![Diagrama Mermaid](/assets/image/thisEmJs.svg)
+>> ## `this` no JavaScript
+>> O `this` é uma palavra-chave importante no JavaScript que muitas vezes confunde os iniciantes. Ele se refere ao contexto de execução, ou seja, ao objeto que está atualmente executando o código. A maneira como o valor de `this` é determinado depende de como uma função é chamada. Vamos explorar detalhadamente os vários usos e comportamentos do `this`.
+>> 
+>> ### # `this` em Métodos de Objetos
+>> Quando `this` é usado dentro de um método de um objeto, ele se refere ao próprio objeto que contém o método.
+>> 
+>> #### Exemplo:
+>> Abaixo, `saudacao` é um método do objeto `pessoa`.\
+>> Dentro do método `saudacao`, `this` se refere ao objeto `pessoa`.\
+>> Portanto, `this.nome` acessa o valor `'Rick'` e `this.idade` acessa o valor `22`.
+>> ```javascript
+>> const pessoa = {
+>>     nome: 'Rick',
+>>     idade: 22,
+>>     saudacao: function() {
+>>         console.log(`Olá, meu nome é ${this.nome} e eu tenho ${this.idade} anos.`);
+>>     }
+>> };
+>> pessoa.saudacao(); // Olá, meu nome é Rick e eu tenho 22 anos.
+>> ```
+>> #### Exemplo:
+>> `detalhes` é um método do objeto `carro`.\
+>> Dentro do método `detalhes`, `this` se refere ao objeto `carro`.\
+>> Portanto, `this.marca` acessa o valor `'Toyota'` e `this.modelo` acessa o valor `'Corolla'`.
+>> ```javascript
+>> const carro = {
+>>     marca: 'Toyota',
+>>     modelo: 'Corolla',
+>>     detalhes: function() {
+>>         console.log(`Este carro é um ${this.marca} ${this.modelo}.`);
+>>     }
+>> };
+>> 
+>> carro.detalhes(); // Este carro é um Toyota Corolla.
+>> ```
+>> 
+>> ### # `this` em Funções Normais
+>> Quando `this` é usado em funções normais, seu valor depende de como a função é chamada. Se a função é chamada sem um contexto de objeto, `this` se refere ao objeto global (`window` no navegador, `global` no Node.js).
+>> 
+>> #### Exemplo:
+>> `mostrarThis` é uma função normal.\
+>> Como `mostrarThis` é chamada sem um objeto, `this` se refere ao objeto global.
+>> ```javascript
+>> function mostrarThis() {
+>>     console.log(this);
+>> }
+>> 
+>> mostrarThis(); // No navegador, isso será o objeto Window. No Node.js, será o objeto global.
+>> ```
+>> #### Exemplo:
+>> `mostrarValor` é um método do objeto `obj`.\
+>> Dentro de `mostrarValor`, `interna` é uma função normal.\
+>> Quando `interna` é chamada, `this` se refere ao objeto global, onde `valor` não está definido, resultando em `undefined`.
+>> ```javascript
+>> const obj = {
+>>     valor: 42,
+>>     mostrarValor: function() {
+>>         function interna() {
+>>             console.log(this.valor);
+>>         }
+>>         interna();
+>>     }
+>> };
+>> 
+>> obj.mostrarValor(); // undefined
+>> ```
+>> 
+>> ### # 'this' Sozinho
+>> Quando `this` é usado sozinho fora de qualquer função, no contexto global, ele se refere ao objeto global.
+>> 
+>> #### Exemplo:
+>> Fora de qualquer função, `this` se refere ao objeto global.
+>> ```javascript
+>> console.log(this); // No navegador, isso será o objeto Window. No Node.js, será o objeto global.
+>> ```
+>> #### Exemplo:
+>> A função `globalThis` retorna `this`, que se refere ao objeto global quando a função é chamada no contexto global.
+>> ```javascript
+>> function globalThis() {
+>>     return this;
+>> }
+>> 
+>> console.log(globalThis() === window); // true no navegador
+>> console.log(globalThis() === global); // true no Node.js
+>> ```
+>> 
+>> ### # 'this' em Manipulação de Eventos
+>> Em manipuladores de eventos, `this` se refere ao elemento HTML que recebeu o evento.
+>> #### Exemplo:
+>> O `this` dentro do manipulador de eventos se refere ao elemento `button` que foi clicado.
+>> ```html
+>> <button id="meuBotao">Clique aqui</button>
+>> <script>
+>> document.getElementById('meuBotao').addEventListener('click', function() {
+>>     console.log(this); // <button id="meuBotao">Clique aqui</button>
+>> });
+>> </script>
+>> ```
+>> #### Exemplo:
+>> O `this` dentro do manipulador de eventos se refere ao elemento `div` que foi clicado.\
+>> A cor de fundo do `div` muda para amarelo quando clicado.
+>> ```html
+>> <div id="meuDiv">
+>>     Clique aqui
+>> </div>
+>> <script>
+>> document.getElementById('meuDiv').addEventListener('click', function() {
+>>     this.style.backgroundColor = 'yellow';
+>> });
+>> </script>
+>> ```
+>> 
+>> ### # 'this' em Arrow Functions
+>> Arrow functions (funções de seta) não têm seu próprio `this`. Em vez disso, herdam o `this` do contexto onde foram definidas.
+>> #### Exemplo:
+>> `arrowFunc` é uma arrow function definida dentro do método `metodo`.\
+>> `arrowFunc` herda o `this` do método `metodo`, que se refere ao objeto `objeto`.
+>> ```javascript
+>> const objeto = {
+>>     valor: 10,
+>>     metodo: function() {
+>>         const arrowFunc = () => {
+>>             console.log(this.valor);
+>>         };
+>>         arrowFunc(); // 10
+>>     }
+>> };
+>> 
+>> objeto.metodo();
+>> ```
+>> #### Exemplo:
+>> A arrow function dentro do `setTimeout` herda o `this` do contexto da função `Comum`.\
+>> Quando a função `Comum` é instanciada, `this` se refere à nova instância criada.
+>> ```javascript
+>> function Comum() {
+>>     this.valor = 42;
+>>     setTimeout(() => {
+>>         console.log(this.valor); // 42
+>>     }, 1000);
+>> }
+>> 
+>> new Comum();
+>> ```
+>> 
+>> ### # Function Borrowing
+>> Function borrowing é a prática de usar métodos de um objeto em outro objeto.
+>> #### Exemplo:
+>> `pessoa1.saudacao` é emprestada para `pessoa2` usando `call`.\
+>> O `this` dentro de `saudacao` se refere a `pessoa2` quando chamado com `call`.
+>> ```javascript
+>> const pessoa1 = {
+>>     nome: 'Henrique',
+>>     saudacao: function() {
+>>         console.log(`Olá, eu sou ${this.nome}`);
+>>     }
+>> };
+>> 
+>> const pessoa2 = {
+>>     nome: 'Rick'
+>> };
+>> 
+>> pessoa1.saudacao.call(pessoa2); // Olá, eu sou Rick
+>> ```
+>> #### Exemplo:
+>> `carro1.detalhes` é emprestada para `carro2` usando `apply`.\
+>> O `this` dentro de `detalhes` se refere a `carro2` quando chamado com `apply`.
+>> ```javascript
+>> const carro1 = {
+>>     marca: 'Honda',
+>>     modelo: 'Civic',
+>>     detalhes: function() {
+>>         console.log(`Carro: ${this.marca} ${this.modelo}`);
+>>     }
+>> };
+>> 
+>> const carro2 = {
+>>     marca: 'Ford',
+>>     modelo: 'Mustang'
+>> };
+>> 
+>> carro1.detalhes.apply(carro2); // Carro: Ford Mustang
+>> ```
+>> 
+>> ### # Ligação Explícita
+>> #### Call
+>> O método `call` chama uma função com um determinado `this` e argumentos passados individualmente.
+>> #### Exemplo:
+>> `call` é usado para chamar `apresentar` com `this` definido como `null` e argumentos `'Rick'` e `22`.
+>> ```javascript
+>> function apresentar(nome, idade) {
+>>     console.log(`Nome: ${nome}, Idade: ${idade}`);
+>> }
+>> 
+>> apresentar.call(null, 'Alice', 25); // Nome: Rick, Idade: 22
+>> ```
+>> #### Exemplo:
+>> `call` é usado para chamar `dizerNome` com `this` definido como `pessoa`.
+>> ```javascript
+>> const pessoa = {
+>>     nome: 'Henrique'
+>> };
+>> 
+>> function dizerNome() {
+>>     console.log(this.nome);
+>> }
+>> 
+>> dizerNome.call(pessoa); // Henrique
+>> ```
+>> 
+>> #### Apply
+>> O método `apply` é semelhante ao `call`, mas os argumentos são passados como um array.
+>> #### Exemplo:
+>> `apply` é usado para chamar `calcular` com `this` definido como `null` e argumentos `[1, 2, 3]`.
+>> ```javascript
+>> function calcular(a, b, c) {
+>>     return a + b + c;
+>> }
+>> 
+>> console.log(calcular.apply(null, [1, 2, 3])); // 6
+>> ```
+>> #### Exemplo:
+>> `apply` é usado para chamar `dizerNomeEIdade` com `this` definido como `pessoa` e argumento `22`.
+>> ```javascript
+>> const pessoa = {
+>>     nome: 'Rick Lustri'
+>> };
+>> 
+>> function dizerNomeEIdade(idade) {
+>>     console.log(`Nome: ${this.nome}, Idade: ${idade}`);
+>> }
+>> 
+>> dizerNomeEIdade.apply(pessoa, [22]); // Nome: Rick Lustri, Idade: 22
+>> ```
+>> 
+>> #### Bind
+>> O método `bind` cria uma nova função que, quando chamada, tem seu `this` definido com um valor específico.
+>> #### Exemplo:
+>> ```javascript
+>> const pessoa = {
+>>     nome: 'Henrique'
+>> };
+>> 
+>> function saudacao() {
+>>     console.log(`Olá, ${this.nome}`);
+>> }
+>> 
+>> const saudacaoHenrique = saudacao.bind(pessoa);
+>> saudacaoHenrique(); // Olá, Henrique
+>> ```
+>> `bind` é usado para criar uma nova função `saudacaoHenrique` com `this` definido como `pessoa`.
+>> #### Exemplo:
+>> `bind` é usado para criar uma nova função `detalhesBMW` com `this` definido como `carro`.
+>> ```javascript
+>> const carro = {
+>>     marca: 'BMW',
+>>     modelo: 'X5'
+>> };
+>> 
+>> function detalhesCarro() {
+>>     console.log(`Marca: ${this.marca}, Modelo: ${this.modelo}`);
+>> }
+>> 
+>> const detalhesBMW = detalhesCarro.bind(carro);
+>> detalhesBMW(); // Marca: BMW, Modelo: X5
+>> ```
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
