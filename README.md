@@ -2389,3 +2389,105 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 >>  console.log("Intervalo parado");
 >> }, 7000); // Saída (após 7 segundos): Intervalo parado
 >> ```
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+
+>> ## Strict mode
+>> O "modo estrito" (strict mode) em JavaScript é uma forma de optar por um comportamento mais restrito no seu código JavaScript, que visa a eliminar alguns erros silenciosos e "más práticas" de programação, além de fornecer mais segurança e melhorar a performance do código. Para ativar o modo estrito, basta adicionar a string `"use strict";` no início de um script ou de uma função.
+>> ### # Ativação do Modo Estrito
+>> Para ativar o modo estrito, insira `"use strict";` no início de um arquivo JavaScript ou dentro de uma função. 
+>> #### Ativação Global
+>> ```javascript
+>> "use strict";
+>> // Código JavaScript em modo estrito
+>> ```
+>> #### Ativação em Função
+>> ```javascript
+>> function exemplo() {
+>>     "use strict";
+>>     // Código JavaScript em modo estrito
+>> }
+>> ```
+>> 
+>> ### # Características e Restrições do Modo Estrito
+>> 1. **Declaração de Variáveis**:\
+>> No modo estrito, você deve declarar todas as variáveis usando `var`, `let` ou `const` antes de usá-las. Caso contrário, um erro será gerado.
+>>    ```javascript
+>>    "use strict";
+>>    x = 3.14;  // ReferenceError: x is not defined
+>>    ```
+>> 2. **Escrita em Propriedades Não-Escrituráveis**:\
+>> Propriedades que não podem ser modificadas (não-escrituráveis) não podem ser alteradas no modo estrito.
+>>    ```javascript
+>>    "use strict";
+>>    const obj = {};
+>>    Object.defineProperty(obj, 'x', { value: 42, writable: false });
+>>    obj.x = 9;  // TypeError: Cannot assign to read-only property 'x'
+>>    ```
+>> 3. **Criação de Propriedades em Objetos Não-Extensíveis**:\
+>> Novas propriedades não podem ser adicionadas a objetos que foram marcados como não-extensíveis.
+>>    ```javascript
+>>    "use strict";
+>>    const obj = {};
+>>    Object.preventExtensions(obj);
+>>    obj.newProp = "value";  // TypeError: Cannot add property newProp, object is not extensible
+>>    ```
+>> 4. **Uso de `eval`**:\
+>> No modo estrito, `eval` não cria ou modifica variáveis no escopo ao seu redor, isolando o código executado dentro de `eval`.
+>>    ```javascript
+>>    "use strict";
+>>    eval("var x = 2;");
+>>    console.log(x);  // ReferenceError: x is not defined
+>>    ```
+>> 5. **`this` em Funções**:\
+>> Em funções no modo estrito, o valor de `this` será `undefined` se ele não for explicitamente configurado, enquanto que no modo não estrito `this` seria o objeto global (ou `window` no navegador).
+>>    ```javascript
+>>    "use strict";
+>>    function func() {
+>>        console.log(this);  // undefined
+>>    }
+>>    func();
+>>    ```
+>> 6. **Propriedades Duplicadas**:\
+>> Objetos literais não podem ter propriedades com o mesmo nome.
+>>    ```javascript
+>>    "use strict";
+>>    const obj = {
+>>        prop: 1,
+>>        prop: 2  // SyntaxError: Duplicate data property in object literal not allowed in strict mode
+>>    };
+>>    ```
+>> 7. **Nomes de Parâmetros Duplicados**:\
+>> Funções não podem ter parâmetros com nomes duplicados.
+>>    ```javascript
+>>    "use strict";
+>>    function soma(a, a, b) {  // SyntaxError: Duplicate parameter name not allowed in this context
+>>        return a + b;
+>>    }
+>>    ```
+>> 8. **Literais Octais**:\
+>> Literais octais (números base 8) são proibidos.
+>>    ```javascript
+>>    "use strict";
+>>    const num = 010;  // SyntaxError: Octal literals are not allowed in strict mode
+>>    ```
+>> 9. **Proibição de `delete` em Variáveis**:\
+>> O modo estrito não permite que variáveis, funções ou argumentos sejam excluídos.
+>>    ```javascript
+>>    "use strict";
+>>    var x = 5;
+>>    delete x;  // SyntaxError: Delete of an unqualified identifier in strict mode.
+>>    ```
+>> 10. **Palavras Reservadas para Futuro Uso**:\
+>> Algumas palavras são reservadas para uso futuro e não podem ser usadas como nomes de variáveis no modo estrito.
+>>     ```javascript
+>>     "use strict";
+>>     const implements = 5;  // SyntaxError: Unexpected strict mode reserved word
+>>     ```
+>> 
+>> ### # Benefícios do Modo Estrito
+>> 1. **Detecção de Erros**: O modo estrito ajuda a capturar erros comuns e evita armadilhas do JavaScript, tornando os erros mais visíveis e mais fáceis de corrigir.
+>> 2. **Segurança**: Previne algumas práticas que podem levar a vulnerabilidades, como a criação acidental de variáveis globais.
+>> 3. **Otimização**: Corrige erros que dificultam a otimização pelos motores JavaScript, ajudando a rodar o código de maneira mais eficiente.
+>> #### Conclusão:
+>> O modo estrito é uma maneira eficaz de melhorar a qualidade do seu código JavaScript, tornando-o mais seguro e menos propenso a erros. Adotar o modo estrito é uma prática recomendada, especialmente em projetos maiores ou ao trabalhar em equipe, para garantir que o código seja mais robusto e sustentável.
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - Strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
