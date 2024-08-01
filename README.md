@@ -2764,3 +2764,465 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 >> detalhesBMW(); // Marca: BMW, Modelo: X5
 >> ```
 >> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+
+<br>
+
+> ![Diagrama Mermaid](/assets/image/asynchronous.svg)
+>> ## Asynchronous
+>> ### # `setTimeout`
+>> #### O que é `setTimeout`?
+>> `setTimeout` é uma função JavaScript que permite executar um pedaço de código ou uma função após um determinado período de tempo. Esse tempo é especificado em milissegundos. A função `setTimeout` é útil para atrasar a execução de uma ação ou tarefa.
+>> #### Sintaxe
+>> ```javascript
+>> setTimeout(function, delay, ...arguments);
+>> ```
+>> `function`: A função que será executada após o tempo especificado.\
+>> `delay`: O tempo em milissegundos após o qual a função será executada.\
+>> `arguments`: Argumentos adicionais que podem ser passados para a função.
+>> #### Exemplo:
+>> ```javascript
+>> // Função a ser executada
+>> function falarOla(nome) {
+>>     console.log(`Olá, ${nome}!`);
+>> }
+>> 
+>> // Definindo o tempo de atraso em 2000 milissegundos (2 segundos)
+>> const segundos = 2000;
+>> 
+>> // Chamando setTimeout para executar falarOla após 2 segundos
+>> setTimeout(falarOla, segundos, "Henrique");
+>> 
+>> ```
+>> 1. Definimos a função `falarOla` que aceita um parâmetro `nome`.
+>> 2. Usamos `setTimeout` para chamar `falarOla` após 2 segundos (2000 milissegundos).
+>> 3. O terceiro argumento `"Henrique"` é passado para a função `falarOla` quando ela for executada.
+>> 4. Após 2 segundos, a mensagem `"Olá, Henrique!"` será exibida no console.
+>> 
+>> #### Cancelando um `setTimeout`
+>> Você pode cancelar um `setTimeout` usando a função `clearTimeout`. Para isso, você precisa armazenar o ID do `setTimeout` em uma variável e então chamar `clearTimeout` com esse ID.
+>> ```javascript
+>> // Função a ser executada
+>> function falarOla(nome) {
+>>     console.log(`Olá, ${nome}!`);
+>> }
+>> 
+>> // Definindo o tempo de atraso em 5000 milissegundos (5 segundos)
+>> const segundos = 5000;
+>> 
+>> // Chamando setTimeout para executar falarOla após 5 segundos
+>> const timeoutId = setTimeout(falarOla, segundos, "Rick");
+>> 
+>> // Cancelando o setTimeout antes que ele seja executado
+>> clearTimeout(timeoutId);
+>> ```
+>> 1. Definimos a função `falarOla` que aceita um parâmetro `nome`.
+>> 2. Usamos `setTimeout` para chamar `falarOla` após 5 segundos (5000 milissegundos).
+>> 3. O `ID` retornado por `setTimeout` é armazenado na variável `timeoutId`.
+>> 4. Chamamos `clearTimeout` com `timeoutId` para cancelar a execução de `falarOla`.
+>> 5. Como resultado, a função `falarOla` não será executada e a mensagem `"Olá, Rick!"` não será exibida.
+>> 
+>> ### # `setInterval`
+>> #### O que é `setInterval`?
+>> `setInterval` é uma função JavaScript que permite executar repetidamente um pedaço de código ou uma função em intervalos de tempo regulares. O intervalo é especificado em milissegundos. A função `setInterval` é útil para executar tarefas periódicas.
+>> #### Sintaxe
+>> ```javascript
+>> setInterval(function, delay, ...arguments);
+>> ```
+>> `function`: A função que será executada repetidamente.\
+>> `delay`: O intervalo de tempo em milissegundos entre cada execução da função.\
+>> `arguments`: Argumentos adicionais que podem ser passados para a função.
+>> #### Exemplo:
+>> ```javascript
+>> // Função a ser executada
+>> function mostrarHoraAtual() {
+>>     const time = new Date();
+>>     console.log(`Hora atual: ${time.toLocaleTimeString()}`);
+>> }
+>> 
+>> // Definindo o intervalo em 1000 milissegundos (1 segundo)
+>> const intervalo = 1000;
+>> 
+>> // Chamando setInterval para executar smostrarHoraAtual a cada 1 segundo
+>> const intervalId = setInterval(mostrarHoraAtual, intervalo);
+>> ```
+>> 1. Definimos a função `mostrarHoraAtual` que exibe a hora atual no console.
+>> 2. Usamos `setInterval` para chamar `mostrarHoraAtual` a cada 1 segundo (1000 milissegundos).
+>> 3. O `ID` retornado por `setInterval` é armazenado na variável `intervalId`.
+>> 4. A cada 1 segundo, a hora atual será exibida no console.
+>> 
+>> #### Cancelando um `setInterval`
+>> Você pode cancelar um `setInterval` usando a função `clearInterval`. Para isso, você precisa armazenar o ID do `setInterval` em uma variável e então chamar `clearInterval` com esse ID.
+>> ```javascript
+>> // Função a ser executada
+>> function mostrarHoraAtual() {
+>>     const time = new Date();
+>>     console.log(`Hora atual: ${time.toLocaleTimeString()}`);
+>> }
+>> 
+>> // Definindo o intervalo em 1000 milissegundos (1 segundo)
+>> const intervalo = 1000;
+>> 
+>> // Chamando setInterval para executar smostrarHoraAtual a cada 1 segundo
+>> const intervalId = setInterval(mostrarHoraAtual, intervalo);
+>> 
+>> // Cancelando o setInterval após 5 segundos
+>> setTimeout(() => clearInterval(intervalId), 5000);
+>> 
+>> ```
+>> 1. Definimos a função `mostrarHoraAtual` que exibe a hora atual no console.
+>> 2. Usamos `setInterval` para chamar `mostrarHoraAtual` a cada 1 segundo (1000 milissegundos).
+>> 3. O `ID` retornado por `setInterval` é armazenado na variável `intervalId`.
+>> 4. Usamos `setTimeout` para cancelar o `setInterval` após 5 segundos (5000 milissegundos).
+>> 5. Como resultado, a função `mostrarHoraAtual` será executada 5 vezes antes de ser cancelada.
+> 
+><br>
+>
+>> ### # Event Loop
+>> #### O que é o Event Loop?
+>> O Event Loop é um mecanismo fundamental no JavaScript que permite a execução de código assíncrono. Ele monitora a pilha de chamadas (call stack) e a fila de mensagens (message queue) para garantir que o código assíncrono, como callbacks, seja executado quando a pilha de chamadas estiver vazia.
+>> #### Componentes Principais
+>> 1. **Call Stack (Pilha de Chamadas)**: Onde o código é executado. Cada vez que uma função é chamada, ela é adicionada à pilha. Quando a função termina sua execução, ela é removida da pilha.
+>> 2. **Message Queue (Fila de Mensagens)**: Onde as mensagens (ou callbacks) aguardam para serem executadas. Cada mensagem é uma função que precisa ser processada.
+>> 3. **Event Loop (Loop de Eventos)**: O Event Loop verifica continuamente se a pilha de chamadas está vazia. Se estiver, ele pega a primeira mensagem da fila de mensagens e a coloca na pilha de chamadas para ser executada.
+>> 
+>> #### Exemplo:
+>> Vamos ver como o Event Loop funciona com um exemplo prático.
+>> ```javascript
+>> console.log('Start'); // 1. Adiciona 'Start' à pilha de chamadas e executa
+>> 
+>> setTimeout(() => {
+>>     console.log('Callback 1'); // 4. Adiciona 'Callback 1' à fila de mensagens após 0 ms
+>> }, 0);
+>> 
+>> console.log('Meio'); // 2. Adiciona 'Meio' à pilha de chamadas e executa
+>> 
+>> setTimeout(() => {
+>>     console.log('Callback 2'); // 5. Adiciona 'Callback 2' à fila de mensagens após 1000 ms
+>> }, 1000);
+>> 
+>> console.log('End'); // 3. Adiciona 'End' à pilha de chamadas e executa
+>> 
+>> 
+>> // Ordem de execução esperada:
+>> // 'Start'
+>> // 'Meio'
+>> // 'End'
+>> // 'Callback 1'
+>> // 'Callback 2'
+>> ```
+>> #### Explicação:
+>> 1. `'Start'` é adicionado à pilha de chamadas e é imediatamente executado, exibindo `'Start'` no console.
+>> 2. `setTimeout` é chamado com um atraso de 0 ms. A função de `callback` é colocada na fila de mensagens para ser executada depois que a pilha de chamadas estiver vazia.
+>> 3. `'Meio'` é adicionado à pilha de chamadas e é imediatamente executado, exibindo `'Meio'` no console.
+>> 4. Outro `setTimeout` é chamado com um atraso de 1000 ms. A função de `callback` é colocada na fila de mensagens para ser executada após 1 segundo.
+>> 5. `'End'` é adicionado à pilha de chamadas e é imediatamente executado, exibindo `'End'` no console.
+>> 6. Após a pilha de chamadas estar vazia, o Event Loop verifica a fila de mensagens e encontra `'Callback 1'`, que é então adicionado à pilha de chamadas e executado, exibindo `'Callback 1'` no console.
+>> 7. Após 1 segundo, o Event Loop verifica novamente a fila de mensagens e encontra `'Callback 2'`, que é então adicionado à pilha de chamadas e executado, exibindo `'Callback 2'` no console.
+>> 
+>> #### Visualização do Event Loop
+>> 1. **Call Stack (Pilha de Chamadas)**:
+>>    - `console.log('Start')` -> `console.log('Meio')` -> `console.log('End')` -> `console.log('Callback 1')` -> `console.log('Callback 2')`
+>> 
+>> 2. **Message Queue (Fila de Mensagens)**:
+>>    - Após `setTimeout(() => { console.log('Callback 1'); }, 0)`, a função de callback é colocada na fila de mensagens.
+>>    - Após `setTimeout(() => { console.log('Callback 2'); }, 1000)`, a função de callback é colocada na fila de mensagens após 1 segundo.
+>> 
+>> 3. **Event Loop (Loop de Eventos)**:
+>>    - Verifica continuamente se a pilha de chamadas está vazia.
+>>    - Quando a pilha de chamadas está vazia, pega a próxima mensagem na fila de mensagens e a coloca na pilha de chamadas para ser executada.
+>>  
+>> #### Por que o Event Loop é Importante?
+>> O Event Loop permite que o JavaScript seja não bloqueante e assíncrono, o que significa que ele pode lidar com múltiplas operações de I/O (entrada/saída) sem bloquear a execução do código. Isso é crucial para a construção de aplicações web eficientes e responsivas.
+>
+><br>
+>
+>> ### # Callbacks
+>> #### O que são Callbacks?
+>> Callbacks são funções passadas como argumentos para outras funções e são chamadas (ou "invocadas") dentro da função que as recebe. No JavaScript, os callbacks são frequentemente usados para operações assíncronas, como leitura de arquivos, consultas a bancos de dados, ou requisições HTTP.
+>> #### Sintaxe
+>> ```javascript
+>> function doSomething(callback) {
+>>     // Código assíncrono
+>>     callback();
+>> }
+>> ```
+>> #### Exemplo:
+>> ```javascript
+>> // Função que simula uma operação assíncrona usando setTimeout
+>> function buscarDados(callback) {
+>>     console.log('Buscando dados...');
+>>     setTimeout(() => {
+>>         const dados = { nome: 'Henrique', idade: 22 };
+>>         callback(dados);
+>>     }, 2000); // Simula um atraso de 2 segundos
+>> }
+>> 
+>> // Função de callback que processa os dados
+>> function processarDados(dados) {
+>>     console.log('Informação recebida:', dados);
+>> }
+>> 
+>> // Chamando a função assíncrona com o callback
+>> buscarDados(processarDados);
+>> ```
+>> 1. Definimos a função `buscarDados` que aceita um `callback` como parâmetro.
+>> 2. Dentro de `buscarDados`, usamos `setTimeout` para simular uma operação assíncrona com um atraso de 2 segundos.
+>> 3. Após o atraso, a função de `callback` é chamada com os dados simulados.
+>> 4. Definimos a função `processarDados` que aceita os dados como parâmetro e os exibe no console.
+>> 5. Chamamos `buscarDados` e passamos `processarDados` como o callback.
+>> 6. Após 2 segundos, a mensagem `'Informação recebida: { nome: "Henrique", idade: 22 }'` é exibida no console.
+>> 
+>> ### # Callback Hell
+>> #### O que é Callback Hell?
+>> Callback Hell é uma situação que ocorre quando vários callbacks aninhados são usados, resultando em código difícil de ler e manter. Isso geralmente acontece em operações assíncronas que dependem de várias etapas ou chamadas de função sequenciais.
+>> #### Exemplo de Callback Hell
+>> ```javascript
+>> // Simulação de uma série de operações assíncronas dependentes
+>> function step1(value, callback) {
+>>     console.log('Step 1:', value);
+>>     setTimeout(() => callback(value + 1), 1000); // Atraso de 1 segundo
+>> }
+>> 
+>> function step2(value, callback) {
+>>     console.log('Step 2:', value);
+>>     setTimeout(() => callback(value + 1), 1000); // Atraso de 1 segundo
+>> }
+>> 
+>> function step3(value, callback) {
+>>     console.log('Step 3:', value);
+>>     setTimeout(() => callback(value + 1), 1000); // Atraso de 1 segundo
+>> }
+>> 
+>> // Executando as funções em sequência com callbacks aninhados
+>> step1(0, (result1) => {
+>>     step2(result1, (result2) => {
+>>         step3(result2, (result3) => {
+>>             console.log('Final result:', result3);
+>>         });
+>>     });
+>> });
+>> ```
+>> 1. Definimos três funções assíncronas: `step1`, `step2` e `step3`, cada uma com um atraso de 1 segundo.
+>> 2. Cada função exibe o valor atual e chama o `callback` com o valor incrementado em 1.
+>> 3. Chamamos `step1` com o valor inicial 0 e um `callback` que chama `step2`.
+>> 4. O `callback` de `step2` chama `step3` com o valor resultante de `step2`.
+>> 5. O `callback` de `step3` exibe o resultado final no console.
+>> 6. O código é difícil de ler devido ao aninhamento de callbacks.
+>> 
+>> #### Como Evitar Callback Hell
+>> Existem várias maneiras de evitar o Callback Hell:
+>> 
+>> 1. **Modularizar Funções**: Separar funções em partes menores e reutilizáveis.
+>> 2. **Promises**: Utilizar Promises para lidar com operações assíncronas de forma mais limpa.
+>> 3. **Async/Await**: Usar `async` e `await` para escrever código assíncrono que se pareça com código síncrono.
+>> 
+>> #### Exemplo Usando Promises
+>> ```javascript
+>> // Convertendo funções para retornar Promises
+>> function step1(value) {
+>>     return new Promise((resolve) => {
+>>         console.log('Step 1:', value);
+>>         setTimeout(() => resolve(value + 1), 1000); // Atraso de 1 segundo
+>>     });
+>> }
+>> 
+>> function step2(value) {
+>>     return new Promise((resolve) => {
+>>         console.log('Step 2:', value);
+>>         setTimeout(() => resolve(value + 1), 1000); // Atraso de 1 segundo
+>>     });
+>> }
+>> 
+>> function step3(value) {
+>>     return new Promise((resolve) => {
+>>         console.log('Step 3:', value);
+>>         setTimeout(() => resolve(value + 1), 1000); // Atraso de 1 segundo
+>>     });
+>> }
+>> 
+>> // Encadeando Promises
+>> step1(0)
+>>     .then(step2)
+>>     .then(step3)
+>>     .then((result) => {
+>>         console.log('Final result:', result);
+>>     });
+>> 
+>> ```
+>> 1. Convertendo `step1`, `step2` e `step3` para retornar Promises.
+>> 2. Cada função retorna uma Promise que resolve com o valor incrementado em 1 após 1 segundo.
+>> 3. Usamos `.then()` para encadear as Promises, tornando o código mais legível.
+>> 4. O resultado final é exibido no console após todas as operações assíncronas serem concluídas.
+>> 
+>> #### Exemplo Usando Async/Await
+>> ```javascript
+>> // Funções assíncronas retornando Promises
+>> function step1(value) {
+>>     return new Promise((resolve) => {
+>>         console.log('Step 1:', value);
+>>         setTimeout(() => resolve(value + 1), 1000); // Atraso de 1 segundo
+>>     });
+>> }
+>> 
+>> function step2(value) {
+>>     return new Promise((resolve) => {
+>>         console.log('Step 2:', value);
+>>         setTimeout(() => resolve(value + 1), 1000); // Atraso de 1 segundo
+>>     });
+>> }
+>> 
+>> function step3(value) {
+>>     return new Promise((resolve) => {
+>>         console.log('Step 3:', value);
+>>         setTimeout(() => resolve(value + 1), 1000); // Atraso de 1 segundo
+>>     });
+>> }
+>> 
+>> // Função assíncrona usando async/await
+>> async function executeSteps() {
+>>     const result1 = await step1(0);
+>>     const result2 = await step2(result1);
+>>     const result3 = await step3(result2);
+>>     console.log('Final result:', result3);
+>> }
+>> 
+>> // Chamando a função assíncrona
+>> executeSteps();
+>> ```
+>> 1. Usamos `async/await` para escrever código assíncrono de maneira mais legível.
+>> 2. A função `executeSteps` é declarada como assíncrona com a palavra-chave `async`.
+>> 3. Usamos `await` para esperar a resolução de cada Promise retornada por `step1`, `step2` e `step3`.
+>> 4. O resultado final é exibido no console após todas as operações assíncronas serem concluídas.
+>
+> <br>
+>
+>> ### # Promises
+>> #### O que são Promises?
+>> Promises são objetos que representam a eventual conclusão (ou falha) de uma operação assíncrona e seu valor resultante. Uma Promise pode estar em um dos três estados:
+>> - **Pending** (Pendente): Estado inicial, que ainda não foi resolvido ou rejeitado.
+>> - **Fulfilled** (Resolvida): A operação assíncrona foi concluída com sucesso e a Promise tem um valor.
+>> - **Rejected** (Rejeitada): A operação assíncrona falhou e a Promise tem um motivo pelo qual foi rejeitada.
+>> #### Sintaxe
+>> ```javascript
+>> let promise = new Promise(function(resolve, reject) {
+>>     // Código assíncrono
+>>     if (/* operação bem-sucedida */) {
+>>         resolve(value);
+>>     } else {
+>>         reject(error);
+>>     }
+>> });
+>> ```
+>> #### Exemplo:
+>> Vamos ver como criar e usar Promises com um exemplo.
+>> ```javascript
+>> // Criando uma função que retorna uma Promise
+>> function buscarDados() {
+>>     return new Promise((resolve, reject) => {
+>>         console.log('Buscando dados...');
+>>         setTimeout(() => {
+>>             const dados = { nome: 'Rick', idade: 22 };
+>>             if (dados) {
+>>                 resolve(dados); // Resolve a Promise com os dados
+>>             } else {
+>>                 reject('Error: Dados não encontrado'); // Rejeita a Promise com um erro
+>>             }
+>>         }, 2000); // Simula um atraso de 2 segundos
+>>     });
+>> }
+>> 
+>> // Usando a Promise
+>> buscarDados()
+>>     .then((dados) => {
+>>         console.log('Dados recebidos', dados);
+>>     })
+>>     .catch((error) => {
+>>         console.error(error);
+>>     });
+>> 
+>> ```
+>> 1. Criamos a função `buscarDados` que retorna uma Promise.
+>> 2. Dentro da Promise, usamos `setTimeout` para simular uma operação assíncrona com um atraso de 2 segundos.
+>> 3. Se os dados são encontrados, chamamos `resolve(dados)` para resolver a Promise.
+>> 4. Se ocorrer um erro, chamamos `reject('Error: Dados não encontrado)` para rejeitar a Promise.
+>> 5. Usamos `.then()` para manipular a resolução da Promise e exibir os dados recebidos no console.
+>> 6. Usamos `.catch()` para manipular a rejeição da Promise e exibir o erro no console.
+>> 
+>> ### # Async/Await
+>> #### O que são Async/Await?
+>> `async` e `await` são palavras-chave do JavaScript que simplificam o trabalho com código assíncrono, permitindo que você escreva código assíncrono que parece síncrono. 
+>> - **async**: Define uma função assíncrona que retorna uma Promise.
+>> - **await**: Pausa a execução da função assíncrona até que a Promise seja resolvida ou rejeitada.
+>> #### Sintaxe
+>> ```javascript
+>> async function myFunction() {
+>>     let result = await somePromise;
+>> }
+>> ```
+>> #### Exemplo:
+>> Vamos ver como usar `async` e `await` para simplificar o exemplo anterior.
+>> ```javascript
+>> // Função assíncrona que retorna uma Promise
+>> function buscarDados() {
+>>     return new Promise((resolve, reject) => {
+>>         console.log('Buscando dados...');
+>>         setTimeout(() => {
+>>             const dados = { nome: 'RickLustri', idade: 22 };
+>>             if (dados) {
+>>                 resolve(dados); // Resolve a Promise com os dados
+>>             } else {
+>>                 reject('Error: Dados não encontrado'); // Rejeita a Promise com um erro
+>>             }
+>>         }, 2000); // Simula um atraso de 2 segundos
+>>     });
+>> }
+>> 
+>> // Função assíncrona usando async/await
+>> async function displayData() {
+>>     try {
+>>         const data = await buscarDados(); // Espera a resolução da Promise
+>>         console.log('Data received:', data);
+>>     } catch (error) {
+>>         console.error(error); // Manipula a rejeição da Promise
+>>     }
+>> }
+>> 
+>> // Chamando a função assíncrona
+>> displayData();
+>> ```
+>> 1. A função `buscarDados` permanece a mesma, retornando uma Promise.
+>> 2. Definimos a função `displayData` como assíncrona usando a palavra-chave `async`.
+>> 3. Dentro de `displayData`, usamos `await` para esperar a resolução da Promise retornada por `buscarDados`.
+>> 4. Se a Promise for resolvida, os dados são exibidos no console.
+>> 5. Usamos `try...catch` para manipular possíveis erros (rejeição da Promise).
+>> 6. Chamamos `displayData` para executar o código assíncrono.
+>> 
+>> ### # Comparação entre Promises e Async/Await
+>> #### Usando Promises
+>> ```javascript
+>> buscarDados()
+>>     .then((dados) => {
+>>         console.log('Dados encontrados:', dados);
+>>     })
+>>     .catch((error) => {
+>>         console.error(error);
+>>     });
+>> ```
+>> 
+>> #### Usando Async/Await
+>> ```javascript
+>> async function displayData() {
+>>     try {
+>>         const dados = await buscarDados();
+>>         console.log('Dados encotrados:', dados);
+>>     } catch (error) {
+>>         console.error(error);
+>>     }
+>> }
+>> 
+>> displayData();
+>> ```
+>> #### Vantagens do Async/Await
+>> - **Leitura mais limpa e intuitiva**: Código assíncrono parece síncrono, facilitando a leitura e manutenção.
+>> - **Menos aninhamento**: Evita o problema de "Promise chaining" (encadeamento de Promises) excessivo, tornando o código mais linear.
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - Promise](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise), [MDN - async/await](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/async_function), [MDN - Callback](https://developer.mozilla.org/pt-BR/docs/Glossary/Callback_function) e [MDN - Event loop](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Event_loop)
