@@ -2390,6 +2390,8 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 >> }, 7000); // Saída (após 7 segundos): Intervalo parado
 >> ```
 >> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+<br>
+<hr>
 
 >> ## Strict mode
 >> O "modo estrito" (strict mode) em JavaScript é uma forma de optar por um comportamento mais restrito no seu código JavaScript, que visa a eliminar alguns erros silenciosos e "más práticas" de programação, além de fornecer mais segurança e melhorar a performance do código. Para ativar o modo estrito, basta adicionar a string `"use strict";` no início de um script ou de uma função.
@@ -3226,3 +3228,317 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 >> - **Leitura mais limpa e intuitiva**: Código assíncrono parece síncrono, facilitando a leitura e manutenção.
 >> - **Menos aninhamento**: Evita o problema de "Promise chaining" (encadeamento de Promises) excessivo, tornando o código mais linear.
 >> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - Promise](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise), [MDN - async/await](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/async_function), [MDN - Callback](https://developer.mozilla.org/pt-BR/docs/Glossary/Callback_function) e [MDN - Event loop](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Event_loop)
+<br>
+<hr>
+
+> ![Diagrama Mermaid](/assets/image/sobreApi.svg)
+>> ## Sobre API's
+>> ### XMLHttpRequest
+>> #### O que é XMLHttpRequest?
+>> `XMLHttpRequest` é um objeto em JavaScript que permite fazer requisições HTTP para interagir com servidores. Ele pode ser usado para buscar dados de um servidor e atualizar partes de uma página web sem recarregar a página inteira. Isso é uma parte fundamental do AJAX (Asynchronous JavaScript and XML).
+>> #### Criando um XMLHttpRequest
+>> Para usar `XMLHttpRequest`, você primeiro precisa criar uma instância desse objeto:
+>> ```javascript
+>> let xhr = new XMLHttpRequest();
+>> ```
+>> ### # Métodos principais
+>> Os métodos mais importantes do `XMLHttpRequest` são:
+>> - `open(method, url, async)`: Inicializa a requisição. `method` é o método HTTP (GET, POST, etc.), `url` é o endpoint, e `async` define se a requisição será assíncrona (true) ou síncrona (false).
+>> - `send(body)`: Envia a requisição. `body` é opcional e usado principalmente em requisições POST.
+>> - `setRequestHeader(header, value)`: Define cabeçalhos HTTP adicionais.
+>> ### # Eventos principais
+>> - `onreadystatechange`: Evento disparado sempre que o `readyState` do `XMLHttpRequest` muda.
+>> - `onload`: Evento disparado quando a requisição é completada com sucesso.
+>> - `onerror`: Evento disparado quando ocorre um erro na requisição.
+>> ### # Propriedades principais
+>> - `readyState`: Retorna o estado atual da requisição. Os estados possíveis são:
+>>   - `0`: Não inicializado
+>>   - `1`: Conexão estabelecida
+>>   - `2`: Requisição recebida
+>>   - `3`: Processando requisição
+>>   - `4`: Requisição concluída e a resposta está pronta
+>> - `status`: Retorna o código de status HTTP da resposta (ex: 200 para sucesso).
+>> - `responseText`: Retorna a resposta da requisição como uma string de texto.
+>> - `responseXML`: Retorna a resposta da requisição como um documento XML.
+>> ### # Requisição GET
+>> Vamos fazer uma requisição GET para um API pública que retorna dados de usuários:
+>> ```javascript
+>> // Cria uma nova instância do XMLHttpRequest
+>> let xhr = new XMLHttpRequest();
+>> 
+>> // Define o método e o URL para a requisição
+>> xhr.open('GET', 'https://jsonplaceholder.typicode.com/users', true);
+>> 
+>> // Define o que fazer quando a resposta for carregada
+>> xhr.onload = function() {
+>>   if (xhr.status >= 200 && xhr.status < 300) {
+>>     // Sucesso: parseia a resposta JSON
+>>     let users = JSON.parse(xhr.responseText);
+>>     console.log(users); // Exibe os dados dos usuários no console
+>>   } else {
+>>     // Se ocorreu um erro
+>>     console.error('Erro na requisição:', xhr.statusText);
+>>   }
+>> };
+>> 
+>> // Define o que fazer se ocorrer um erro na requisição
+>> xhr.onerror = function() {
+>>   console.error('Erro na conexão');
+>> };
+>> 
+>> // Envia a requisição
+>> xhr.send();
+>> ```
+>> 
+>> #### Explicação:
+>> 1. **Criando o objeto**: `let xhr = new XMLHttpRequest();`
+>>    - Cria uma nova instância de `XMLHttpRequest`.
+>> 
+>> 2. **Inicializando a requisição**: `xhr.open('GET', 'https://jsonplaceholder.typicode.com/users', true);`
+>>    - Configura a requisição para usar o método GET e acessar a URL especificada. A requisição será assíncrona (true).
+>> 
+>> 3. **Configurando o evento onload**:
+>>    - `xhr.onload` define uma função que será chamada quando a resposta for carregada com sucesso.
+>>    - `if (xhr.status >= 200 && xhr.status < 300)` verifica se o status da resposta está no intervalo de sucesso (200–299).
+>>    - `let users = JSON.parse(xhr.responseText);` converte a resposta JSON em um objeto JavaScript.
+>>    - `console.log(users);` exibe os dados no console.
+>> 
+>> 4. **Configurando o evento onerror**:
+>>    - `xhr.onerror` define uma função que será chamada se ocorrer um erro na requisição.
+>> 
+>> 5. **Enviando a requisição**: `xhr.send();`
+>>    - Envia a requisição ao servidor.
+>> 
+>> ### # Requisição POST
+>> Agora, vamos fazer uma requisição POST para enviar dados para o servidor:
+>> ```javascript
+>> // Cria uma nova instância do XMLHttpRequest
+>> let xhr = new XMLHttpRequest();
+>> 
+>> // Define o método e o URL para a requisição
+>> xhr.open('POST', 'https://jsonplaceholder.typicode.com/posts', true);
+>> 
+>> // Define o cabeçalho da requisição como JSON
+>> xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+>> 
+>> // Define o que fazer quando a resposta for carregada
+>> xhr.onload = function() {
+>>   if (xhr.status >= 200 && xhr.status < 300) {
+>>     // Sucesso: parseia a resposta JSON
+>>     let response = JSON.parse(xhr.responseText);
+>>     console.log(response); // Exibe a resposta no console
+>>   } else {
+>>     // Se ocorreu um erro
+>>     console.error('Erro na requisição:', xhr.statusText);
+>>   }
+>> };
+>> 
+>> // Define o que fazer se ocorrer um erro na requisição
+>> xhr.onerror = function() {
+>>   console.error('Erro na conexão');
+>> };
+>> 
+>> // Define os dados que serão enviados
+>> let data = JSON.stringify({
+>>   title: 'foo',
+>>   body: 'bar',
+>>   userId: 1
+>> });
+>> 
+>> // Envia a requisição com os dados
+>> xhr.send(data);
+>> ```
+>> #### Explicação:
+>> 1. **Criando o objeto**: `let xhr = new XMLHttpRequest();`
+>>    - Cria uma nova instância de `XMLHttpRequest`.
+>> 
+>> 2. **Inicializando a requisição**: `xhr.open('POST', 'https://jsonplaceholder.typicode.com/posts', true);`
+>>    - Configura a requisição para usar o método POST e acessar a URL especificada. A requisição será assíncrona (true).
+>> 
+>> 3. **Definindo o cabeçalho da requisição**: `xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');`
+>>    - Define que o corpo da requisição será JSON.
+>> 
+>> 4. **Configurando o evento onload**:
+>>    - `xhr.onload` define uma função que será chamada quando a resposta for carregada com sucesso.
+>>    - `if (xhr.status >= 200 && xhr.status < 300)` verifica se o status da resposta está no intervalo de sucesso (200–299).
+>>    - `let response = JSON.parse(xhr.responseText);` converte a resposta JSON em um objeto JavaScript.
+>>    - `console.log(response);` exibe os dados no console.
+>> 
+>> 5. **Configurando o evento onerror**:
+>>    - `xhr.onerror` define uma função que será chamada se ocorrer um erro na requisição.
+>> 
+>> 6. **Definindo os dados**: `let data = JSON.stringify({ title: 'foo', body: 'bar', userId: 1 });`
+>>    - Converte os dados em uma string JSON para serem enviados.
+>> 
+>> 7. **Enviando a requisição com os dados**: `xhr.send(data);`
+>>    - Envia a requisição ao servidor com os dados JSON.
+>> 
+>> #### Conclusão:
+>> O `XMLHttpRequest` é uma ferramenta poderosa para fazer requisições HTTP assíncronas e síncronas em JavaScript. No entanto, ele está sendo cada vez mais substituído pelo `fetch`, que oferece uma API mais moderna e simplificada para realizar operações semelhantes. Contudo, ainda é importante compreender `XMLHttpRequest`, pois é amplamente utilizado em muitas aplicações web existentes.
+>
+><br>
+>
+>> ###  Fetch
+>> ### O que é Fetch API?
+>> Fetch API é uma interface moderna que permite fazer requisições HTTP de forma mais simples e intuitiva do que o `XMLHttpRequest`. A Fetch API usa Promises, que facilitam o manuseio de requisições assíncronas.
+>> ### # Como usar a Fetch API
+>> A Fetch API é utilizada através da função global `fetch()`, que retorna uma Promise. Esta Promise resolve para o objeto `Response`, representando a resposta à requisição.
+>> #### Sintaxe básica
+>> A sintaxe básica do `fetch` é:
+>> ```javascript
+>> fetch(url, options)
+>>   .then(response => {
+>>     // Processa a resposta aqui
+>>   })
+>>   .catch(error => {
+>>     // Lida com o erro aqui
+>>   });
+>> ```
+>> ### # Requisição GET
+>> Vamos fazer uma requisição GET para um API pública que retorna dados de usuários:
+>> ```javascript
+>> // URL da API
+>> const url = 'https://jsonplaceholder.typicode.com/users';
+>> 
+>> // Fazendo a requisição GET
+>> fetch(url)
+>>   .then(response => {
+>>     // Verifica se a resposta está ok (status 200-299)
+>>     if (!response.ok) {
+>>       throw new Error('Network response was not ok ' + response.statusText);
+>>     }
+>>     // Converte a resposta para JSON
+>>     return response.json();
+>>   })
+>>   .then(data => {
+>>     // Processa os dados
+>>     console.log(data); // Exibe os dados no console
+>>   })
+>>   .catch(error => {
+>>     // Lida com os erros
+>>     console.error('There has been a problem with your fetch operation:', error);
+>>   });
+>> ```
+>> #### Explicação:
+>> 1. **Definindo a URL**: `const url = 'https://jsonplaceholder.typicode.com/users';`
+>>    - Define a URL do endpoint da API.
+>> 
+>> 2. **Fazendo a requisição GET**: `fetch(url)`
+>>    - Faz a requisição para a URL especificada.
+>> 
+>> 3. **Processando a resposta**:
+>>    - `response.ok` verifica se a resposta foi bem-sucedida.
+>>    - `response.json()` converte a resposta em JSON.
+>> 
+>> 4. **Manipulando os dados**: `console.log(data);`
+>>    - Exibe os dados da resposta no console.
+>> 
+>> 5. **Lidando com erros**: `catch(error => { ... });`
+>>    - Captura e exibe quaisquer erros que ocorram durante a requisição.
+>> 
+>> ### # Requisição POST
+>> Vamos fazer uma requisição POST para enviar dados para o servidor:
+>> ```javascript
+>> // URL da API
+>> const url = 'https://jsonplaceholder.typicode.com/posts';
+>> 
+>> // Dados a serem enviados
+>> const data = {
+>>   title: 'foo',
+>>   body: 'bar',
+>>   userId: 1
+>> };
+>> 
+>> // Fazendo a requisição POST
+>> fetch(url, {
+>>   method: 'POST', // Método HTTP
+>>   headers: {
+>>     'Content-Type': 'application/json; charset=UTF-8' // Cabeçalhos HTTP
+>>   },
+>>   body: JSON.stringify(data) // Dados enviados no corpo da requisição
+>> })
+>>   .then(response => {
+>>     // Verifica se a resposta está ok (status 200-299)
+>>     if (!response.ok) {
+>>       throw new Error('Network response was not ok ' + response.statusText);
+>>     }
+>>     // Converte a resposta para JSON
+>>     return response.json();
+>>   })
+>>   .then(data => {
+>>     // Processa os dados
+>>     console.log(data); // Exibe a resposta no console
+>>   })
+>>   .catch(error => {
+>>     // Lida com os erros
+>>     console.error('There has been a problem with your fetch operation:', error);
+>>   });
+>> ```
+>> #### Explicação:
+>> 1. **Definindo a URL**: `const url = 'https://jsonplaceholder.typicode.com/posts';`
+>>    - Define a URL do endpoint da API.
+>> 
+>> 2. **Definindo os dados**: `const data = { ... };`
+>>    - Define os dados a serem enviados no corpo da requisição.
+>> 
+>> 3. **Fazendo a requisição POST**: `fetch(url, { method: 'POST', headers: { ... }, body: JSON.stringify(data) })`
+>>    - Configura a requisição para usar o método POST, define os cabeçalhos e converte os dados para JSON.
+>> 
+>> 4. **Processando a resposta**:
+>>    - `response.ok` verifica se a resposta foi bem-sucedida.
+>>    - `response.json()` converte a resposta em JSON.
+>> 
+>> 5. **Manipulando os dados**: `console.log(data);`
+>>    - Exibe os dados da resposta no console.
+>> 
+>> 6. **Lidando com erros**: `catch(error => { ... });`
+>>    - Captura e exibe quaisquer erros que ocorram durante a requisição.
+>> 
+>> ### # Lidando com requisições e respostas
+>> A Fetch simplifica a manipulação de respostas, especialmente no que diz respeito ao tratamento de diferentes tipos de dados (como JSON, texto, e até mesmo blobs).
+>> #### # Requisição com autenticação
+>> Algumas APIs exigem autenticação, que pode ser facilmente adicionada usando cabeçalhos.
+>> ```javascript
+>> // URL da API
+>> const url = 'https://api.example.com/protected';
+>> 
+>> // Fazendo a requisição GET com autenticação
+>> fetch(url, {
+>>   method: 'GET',
+>>   headers: {
+>>     'Authorization': 'Bearer YOUR_ACCESS_TOKEN'
+>>   }
+>> })
+>>   .then(response => {
+>>     if (!response.ok) {
+>>       throw new Error('Network response was not ok ' + response.statusText);
+>>     }
+>>     return response.json();
+>>   })
+>>   .then(data => {
+>>     console.log(data);
+>>   })
+>>   .catch(error => {
+>>     console.error('There has been a problem with your fetch operation:', error);
+>>   });
+>> ```
+>> #### Explicação:
+>> 1. **Definindo a URL**: `const url = 'https://api.example.com/protected';`
+>>    - Define a URL do endpoint da API.
+>> 
+>> 2. **Fazendo a requisição GET com autenticação**: `fetch(url, { method: 'GET', headers: { 'Authorization': 'Bearer YOUR_ACCESS_TOKEN' } })`
+>>    - Configura a requisição para usar o método GET e inclui o cabeçalho de autenticação.
+>> 
+>> 3. **Processando a resposta**:
+>>    - `response.ok` verifica se a resposta foi bem-sucedida.
+>>    - `response.json()` converte a resposta em JSON.
+>> 
+>> 4. **Manipulando os dados**: `console.log(data);`
+>>    - Exibe os dados da resposta no console.
+>> 
+>> 5. **Lidando com erros**: `catch(error => { ... });`
+>>    - Captura e exibe quaisquer erros que ocorram durante a requisição.
+>> 
+>> #### Conclusão
+>> A Fetch API é uma maneira moderna e simplificada de fazer requisições HTTP em JavaScript. Ela oferece uma interface mais fácil de usar do que o `XMLHttpRequest` e permite um manuseio mais intuitivo de Promises, facilitando o trabalho com operações assíncronas. Através de exemplos comentados e detalhados, é possível entender como realizar diferentes tipos de requisições e como lidar com as respostas e possíveis erros.
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) e [MDN - Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
