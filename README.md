@@ -3542,3 +3542,185 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 >> #### Conclusão
 >> A Fetch API é uma maneira moderna e simplificada de fazer requisições HTTP em JavaScript. Ela oferece uma interface mais fácil de usar do que o `XMLHttpRequest` e permite um manuseio mais intuitivo de Promises, facilitando o trabalho com operações assíncronas. Através de exemplos comentados e detalhados, é possível entender como realizar diferentes tipos de requisições e como lidar com as respostas e possíveis erros.
 >> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) e [MDN - Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+
+<br>
+<hr>
+
+>> ## Classes
+>> ### # O que são Classes em JavaScript?
+>> Classes em JavaScript são uma forma moderna de criar objetos e implementar conceitos de Programação Orientada a Objetos (POO). Introduzidas no ECMAScript 6 (ES6), as classes fornecem uma sintaxe mais simples e familiar para desenvolvedores que vêm de outras linguagens orientadas a objetos, como Java ou C#. Embora JavaScript continue sendo uma linguagem baseada em protótipos, as classes oferecem uma maneira mais estruturada e legível de definir e herdar objetos.
+>> 
+>> #### Definindo uma Classe
+>> Vamos definir uma classe simples chamada `Pessoa`. Uma classe em JavaScript é definida usando a palavra-chave `class`, seguida pelo nome da classe.
+>> #### Exemplo Básico:
+>> ```javascript
+>> // Definindo a classe Pessoa
+>> class Pessoa {
+>>   // O método constructor é um método especial para criar e inicializar um objeto criado a partir de uma classe.
+>>   constructor(nome, idade) {
+>>     this.nome = nome; // Atribui o valor do argumento 'nome' à propriedade 'nome' do objeto
+>>     this.idade = idade;   // Atribui o valor do argumento 'idade' à propriedade 'idade' do objeto
+>>   }
+>> 
+>>   // Método de instância - estará disponível em todas as instâncias da classe
+>>   apresentar() {
+>>     console.log(`Olá, meu nome é ${this.nome} e eu tenho ${this.idade} anos.`);
+>>   }
+>> 
+>>   // Método estático - disponível apenas na classe, não nas instâncias
+>>   static especie() {
+>>     console.log('Humana');
+>>   }
+>> }
+>> 
+>> // Criando uma instância da classe Pessoa
+>> const pessoa1 = new Pessoa('Henrique', 22);
+>> 
+>> // Chamando o método de instância 'apresentar'
+>> pessoa1.apresentar(); // Olá, meu nome é Henrique e eu tenho 22 anos.
+>> 
+>> // Chamando o método estático 'especie' diretamente na classe
+>> Pessoa.especie(); // Humana
+>> ```
+>> #### Explicação:
+>> 1. **Definição da Classe**: `class Pessoa` define uma nova classe chamada `Pessoa`.
+>> 2. **Construtor**: `constructor(nome, idade)` é um método especial que inicializa novos objetos da classe. `this.nome` e `this.idade` são propriedades definidas com base nos argumentos passados ao construtor.
+>> 3. **Método de Instância**: `apresentar()` é um método que pode ser chamado em qualquer instância da classe `Pessoa`.
+>> 4. **Método Estático**: `static especie()` é um método que pode ser chamado diretamente na classe `Pessoa`, não em suas instâncias.
+>> 5. **Instância da Classe**: `const pessoa1 = new Pessoa('Henrique', 22)` cria um novo objeto da classe `Pessoa`.
+>> 6. **Chamando Métodos**: `pessoa1.apresentar()` chama o método `apresentar` na instância `pessoa1`. `Pessoa.especie()` chama o método estático `especie` na classe `Pessoa`.
+>> 
+>> ### # Herança
+>> A herança permite que uma classe herde propriedades e métodos de outra classe, facilitando a reutilização de código e a criação de uma hierarquia de classes.
+>> 
+>> #### Exemplo de Herança
+>> ```javascript
+>> // Definindo uma classe chamada 'Funcionario' que herda da classe 'Pessoa'
+>> class Funcionario extends Pessoa {
+>>   constructor(nome, idade, meuTrabalho) {
+>>     super(nome, idade); // Chama o construtor da classe pai (Pessoa)
+>>     this.meuTrabalho = meuTrabalho; // Atribui o valor do argumento 'meuTrabalho' à propriedade 'meuTrabalho' do objeto
+>>   }
+>> 
+>>   // Sobrescrevendo o método 'apresentar' da classe pai
+>>   apresentar() {
+>>     console.log(`Olá, meu nome é ${this.nome}, eu sou um(a) ${this.meuTrabalho} e eu tenho ${this.idade} anos.`);
+>>   }
+>> 
+>>   // Método específico da classe 'Funcionario'
+>>   trabalho() {
+>>     console.log(`${this.nome} está trabalhando como ${this.meuTrabalho}.`);
+>>   }
+>> }
+>> 
+>> // Criando uma instância da classe 'Funcionario'
+>> const funcionario1 = new Funcionario('Rick', 22, 'Desenvolvedor');
+>> 
+>> // Chamando o método de instância 'apresentar'
+>> funcionario1.apresentar(); // Olá, meu nome é Rick, eu sou um(a) Desenvolvedor e eu tenho 22 anos.
+>> 
+>> // Chamando o método específico 'trabalho'
+>> funcionario1.trabalho(); // Rick está trabalhando como Desenvolvedor.
+>> ```
+>> #### Explicação:
+>> 1. **Definição da Classe Derivada**: `class Funcionario extends Pessoa` define uma nova classe `Funcionario` que herda da classe `Pessoa`.
+>> 2. **Construtor**: `constructor(nome, idade, meuTrabalho)` inicializa a instância da classe `Funcionario`, chamando `super(nome, idade)` para herdar as propriedades `nome` e `idade` da classe `Pessoa`.
+>> 3. **Método Sobrescrito**: `apresentar()` na classe `Funcionario` sobrescreve o método `apresentar` da classe `Pessoa`.
+>> 4. **Novo Método**: `trabalho()` é um método específico da classe `Funcionario`.
+>> 5. **Instância da Classe**: `const funcionario1 = new Funcionario('Rick', 22, 'Desenvolvedor')` cria um novo objeto da classe `Funcionario`.
+>> 6. **Chamando Métodos**: `funcionario1.apresentar()` chama o método `apresentar` sobrescrito na instância `funcionario1`. `funcionario1.trabalho()` chama o método `trabalho` na instância `funcionario1`.
+>> 
+>> ### # Encapsulamento
+>> O encapsulamento é uma prática de programação que esconde os detalhes internos de um objeto e expõe apenas o que é necessário. Em JavaScript, usamos `#` para declarar campos privados em classes.
+>> 
+>> #### Exemplo de Encapsulamento
+>> ```javascript
+>> // Definindo uma classe 'ContaBancaria' com campos privados
+>> class ContaBancaria {
+>>   // Campos privados são prefixados com #
+>>   #saldo;
+>> 
+>>   constructor(dono, saldo) {
+>>     this.dono = dono; // Atribui o valor do argumento 'dono' à propriedade 'dono' do objeto
+>>     this.#saldo = saldo; // Inicializa o campo privado '#saldo' com o valor do argumento 'saldo'
+>>   }
+>> 
+>>   // Método público para depositar dinheiro
+>>   depositar(quantidade) {
+>>     this.#saldo += quantidade;
+>>     console.log(`${this.dono} depositou ${quantidade}. Saldo atual: ${this.#saldo}`);
+>>   }
+>> 
+>>   // Método público para sacar dinheiro
+>>   retirar(quantidade) {
+>>     if (quantidade > this.#saldo) {
+>>       console.log('Saldo insuficiente.');
+>>     } else {
+>>       this.#saldo -= quantidade;
+>>       console.log(`${this.dono} sacou ${quantidade}. Saldo atual: ${this.#saldo}`);
+>>     }
+>>   }
+>> 
+>>   // Método público para verificar o saldo
+>>   verificarSaldo() {
+>>     console.log(`O saldo de ${this.dono} é ${this.#saldo}`);
+>>   }
+>> }
+>> 
+>> // Criando uma instância da classe ContaBancario
+>> const conta = new ContaBancaria('Henrique', 1000);
+>> 
+>> // Interagindo com a conta bancária
+>> conta.depositar(500); // Henrique depositou 500. Saldo atual: 1500
+>> conta.retirar(200); // Henrique sacou 200. Saldo atual: 1300
+>> conta.verificarSaldo(); // O saldo de Henrique é 1300
+>> 
+>> // Tentando acessar o campo privado '#saldo' diretamente (irá causar erro)
+>> // console.log(conta.#saldo); // SyntaxError: Private field '#saldo' must be declared in an enclosing class
+>> ```
+>> #### Explicação:
+>> 1. **Definição da Classe**: `class ContaBancaria` define uma nova classe chamada `ContaBancaria`.
+>> 2. **Campos Privados**: `#saldo` é um campo privado, que não pode ser acessado diretamente fora da classe.
+>> 3. **Construtor**: `constructor(dono, saldo)` inicializa a instância da classe com `dono` e `saldo`.
+>> 4. **Métodos Públicos**: `depositar(quantidade)`, `retirar(quantidade)`, e `verificarSaldo()` são métodos públicos que interagem com o campo privado `#saldo`.
+>> 5. **Instância da Classe**: `const conta = new ContaBancaria('Henrique', 1000)` cria um novo objeto da classe `ContaBancaria`.
+>> 6. **Interagindo com a Instância**: `conta.depositar(500)` deposita dinheiro na conta. `conta.retirar(200)` saca dinheiro da conta. `conta.verificarSaldo()` verifica o saldo da conta.
+>> 7. **Acesso Indevido**: `console.log(conta.#saldo)` tenta acessar o campo privado diretamente, o que resulta em um erro de sintaxe.
+>> 
+>> ### # Polimorfismo
+>> O polimorfismo permite que métodos com o mesmo nome se comportem de maneira diferente em classes diferentes. No exemplo abaixo, o método `greet` se comporta de maneira diferente nas classes `Person` e `Employee`.
+>> 
+>> #### Exemplo de Polimorfismo
+>> ```javascript
+>> // Definindo a classe Programador que herda da classe Funcionario
+>> class Programador extends Funcionario {
+>>   constructor(nome, idade, meuTrabalho, departamento) {
+>>     // Chama o construtor da classe pai (Funcionario)
+>>     super(nome, idade, meuTrabalho);
+>>     this.departamento = departamento; // Atribui o valor do argumento 'departamento' à propriedade 'departamento' do objeto
+>>   }
+>> 
+>>   // Sobrescrevendo o método apresentar da classe pai
+>>   apresentar() {
+>>     console.log(`Olá, meu nome é ${this.nome}, eu sou um(a) ${this.meuTrabalho} do departamento de ${this.departamento} e eu tenho ${this.idade} anos.`);
+>>   }
+>> }
+>> 
+>> // Criando uma instância da classe Programador
+>> const dev1 = new Programador('Rick', 22, 'Desenvolvedor', 'TI');
+>> 
+>> // Chamando o método de instância apresentar
+>> dev1.apresentar();
+>> 
+>>  // Olá, meu nome é Rick, eu sou um(a) Desenvolvedor do departamento de TI e eu tenho 22 anos.
+>> ```
+>> #### Explicação:
+>> 1. **Definição da Classe Derivada**: `class Programador extends Funcionario` define uma nova classe `Programador` que herda da classe `Funcionario`.
+>> 2. **Construtor**: `constructor(nome, idade, meuTrabalho, departamento)` inicializa a instância da classe `Programador`, chamando `super(nome, idade, meuTrabalho)` para herdar as propriedades `nome`, `idade`, e `meuTrabalho` da classe `Funcionario`.
+>> 3. **Método Sobrescrito**: `apresentar()` na classe `Programador` sobrescreve o método `apresentar` da classe `Funcionario`.
+>> 4. **Instância da Classe**: `const dev1 = new Programador('Rick', 22, 'Desenvolvedor', 'TI')` cria um novo objeto da classe `Programador`.
+>> 5. **Chamando Métodos**: `dev1.apresentar()` chama o método `apresentar` sobrescrito na instância `dev1`.
+>> 
+>> #### Conclusão
+>> As classes em JavaScript fornecem uma maneira eficiente de criar e gerenciar objetos, promovendo a reutilização de código e a organização através de herança, encapsulamento e polimorfismo. Com a introdução de ES6, a sintaxe das classes tornou-se mais intuitiva e alinhada com outras linguagens de programação orientadas a objetos.
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
