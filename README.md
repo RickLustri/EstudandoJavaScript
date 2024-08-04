@@ -3724,3 +3724,123 @@ Quando a referência ao objeto é removida, ele pode ser coletado pelo garbage c
 >> #### Conclusão
 >> As classes em JavaScript fornecem uma maneira eficiente de criar e gerenciar objetos, promovendo a reutilização de código e a organização através de herança, encapsulamento e polimorfismo. Com a introdução de ES6, a sintaxe das classes tornou-se mais intuitiva e alinhada com outras linguagens de programação orientadas a objetos.
 >> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+
+<br>
+<hr>
+
+
+>> ## Introdução a Iterators
+>> ### O que são Iterators?
+>> Iterators são uma forma de acessar elementos de uma coleção (como arrays, strings ou objetos personalizados) de forma sequencial, sem expor a estrutura interna da coleção. Em JavaScript, um objeto é considerado um iterator se ele implementa um método chamado `next()`, que retorna um objeto com duas propriedades:
+>> - `value`: O próximo valor na sequência.
+>> - `done`: Um booleano indicando se a sequência terminou (`true`) ou não (`false`).
+>> ### Exemplo de Iterator
+>> Vamos criar um iterator simples para iterar sobre um array:
+>> ```javascript
+>> // Nosso array de exemplo
+>> const array = [1, 2, 3, 4, 5];
+>> 
+>> // Função para criar um iterator para o array
+>> function createIterator(arr) {
+>>   let index = 0;
+>>   return {
+>>     next: function() {
+>>       if (index < arr.length) {
+>>         return { value: arr[index++], done: false };
+>>       } else {
+>>         return { value: undefined, done: true };
+>>       }
+>>     }
+>>   };
+>> }
+>> 
+>> // Criando o iterator
+>> const iterator = createIterator(array);
+>> 
+>> console.log(iterator.next()); // { value: 1, done: false }
+>> console.log(iterator.next()); // { value: 2, done: false }
+>> console.log(iterator.next()); // { value: 3, done: false }
+>> console.log(iterator.next()); // { value: 4, done: false }
+>> console.log(iterator.next()); // { value: 5, done: false }
+>> console.log(iterator.next()); // { value: undefined, done: true }
+>> ```
+>> Neste exemplo, a função `createIterator` cria um iterator para o array fornecido. Cada chamada para `next()` retorna o próximo valor do array até que todos os valores sejam retornados.
+>
+> <br>
+> 
+>> ## Introdução a Generators
+>> ### O que são Generators?
+>> Generators são uma forma mais poderosa e flexível de criar iterators em JavaScript. Um generator é uma função que pode ser pausada e retomada, e sua execução é controlada por meio do uso da palavra-chave `yield`. As funções geradoras são definidas usando a sintaxe `function*`.
+>> ### Exemplo de Generator
+>> Vamos criar um generator simples que produz valores de 1 a 5:
+>> ```javascript
+>> // Definindo uma função geradora
+>> function* simpleGenerator() {
+>>   yield 1;
+>>   yield 2;
+>>   yield 3;
+>>   yield 4;
+>>   yield 5;
+>> }
+>> 
+>> // Criando um generator
+>> const generator = simpleGenerator();
+>> 
+>> console.log(generator.next()); // { value: 1, done: false }
+>> console.log(generator.next()); // { value: 2, done: false }
+>> console.log(generator.next()); // { value: 3, done: false }
+>> console.log(generator.next()); // { value: 4, done: false }
+>> console.log(generator.next()); // { value: 5, done: false }
+>> console.log(generator.next()); // { value: undefined, done: true }
+>> ```
+>> Neste exemplo, a função geradora `simpleGenerator` usa a palavra-chave `yield` para produzir valores. Cada chamada para `next()` retorna o próximo valor produzido pela função geradora.
+>> 
+>> ### # Usando Generators com Loop
+>> Generators podem ser usados em loops para simplificar a iteração:
+>> ```javascript
+>> function* simpleGenerator() {
+>>   yield 1;
+>>   yield 2;
+>>   yield 3;
+>>   yield 4;
+>>   yield 5;
+>> }
+>> 
+>> // Criando um generator
+>> const generator = simpleGenerator();
+>> 
+>> // Usando um loop for...of para iterar sobre os valores
+>> for (const value of generator) {
+>>   console.log(value); // 1, 2, 3, 4, 5
+>> }
+>> ```
+>> Neste exemplo, o loop `for...of` itera automaticamente sobre os valores produzidos pelo generator.
+>> 
+>> ### # Usando Generators para Tarefas Complexas
+>> Generators podem ser usados para implementar lógica mais complexa, como produção de uma sequência infinita de números:
+>> ```javascript
+>> function* infiniteSequence() {
+>>   let i = 0;
+>>   while (true) {
+>>     yield i++;
+>>   }
+>> }
+>> 
+>> // Criando um generator
+>> const generator = infiniteSequence();
+>> 
+>> // Pegando os primeiros 5 valores
+>> console.log(generator.next().value); // 0
+>> console.log(generator.next().value); // 1
+>> console.log(generator.next().value); // 2
+>> console.log(generator.next().value); // 3
+>> console.log(generator.next().value); // 4
+>> ```
+>> Neste exemplo, o generator `infiniteSequence` continua produzindo valores indefinidamente.
+>> 
+>> ### Conclusão:
+>> Iterators e Generators são ferramentas poderosas em JavaScript para manipular coleções de dados de forma eficiente e flexível. Iterators fornecem uma interface padrão para acessar elementos de uma coleção sequencialmente, enquanto Generators permitem criar iterators complexos com menos código e maior clareza.
+>> ### Resumo dos Pontos Principais
+>> - **Iterators**: Implementam um método `next()` para acessar elementos sequencialmente.
+>> - **Generators**: Funções que podem ser pausadas e retomadas usando `yield`, facilitando a criação de iterators complexos.
+>> > ##### OBS: Você pode aprender mais lendo esse artigo: [MDN - Iterators e Generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators)
