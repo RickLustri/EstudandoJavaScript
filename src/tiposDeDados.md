@@ -158,3 +158,32 @@
 > let objeto = { carteira: null };
 > console.log(objeto.carteira); // Saída: null
 > ```
+
+> ## Operador TypeOf
+> - O operador typeof é usado para saber o tipo de dado de uma variavel ou expressão, ele retorna em uma string que indica o tipo do valor fornecido.
+> ##### **Exemplo:**
+> ```javascript
+> // Para saber o tipo de dado retornado para a variavel utiliza-se a seguinte sintaxe
+> typeOf valor;
+>
+> // exemplos:
+> function saberTipo(value) {
+>   console.log(typeof value);
+> }
+> 
+> saberTipo("Ola");  // Saída: "string"
+> 
+> saberTipo(42);  // Saída: "number"
+> 
+> saberTipo(true); // Saída: "boolean"
+> 
+> saberTipo(undefined); // Saída: "undefined"
+> 
+> saberTipo(null); // Saída: "object"
+> 
+> saberTipo([1,2,3]);  // Saída: "object"
+> 
+> saberTipo({nome: 'henrique'}); // Saída: "object"
+> 
+> saberTipo(function(){}); // Saída: "function"
+> ```
