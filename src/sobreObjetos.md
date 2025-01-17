@@ -2,7 +2,7 @@
 > ##### **Exemplo:**
 > ```javascript
 > // Sintaxe de objeto é:
-> nomeDoObjeto { propriedade: 'valor' }
+> nomeDoObjeto = { propriedade: 'valor' }
 > 
 > // Exemplo usando chaves:
 > const cardapio = {

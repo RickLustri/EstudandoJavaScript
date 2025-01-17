@@ -175,7 +175,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >>   var nome; // declaração é elevada para o topo da função
 >>   console.log(nome); // undefined
 >>   nome = "Rick"; // inicialização ocorre no local original
->>   console.log(y); // Rick
+>>   console.log(nome); // Rick
 >> }
 >> example();
 >> ```
@@ -218,9 +218,9 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >> ```javascript
 >> function example() {
 >>     let idade = 22; // 'idade' está visível apenas dentro deste bloco `function`
->>     console.log(x); // 22
+>>     console.log(idade); // 22
 >> }
->> console.log(idade)); // Erro: 'idade' não está definida
+>> console.log(idade); // Erro: 'idade' não está definida
 >> ```
 >> 
 >> ### Hoisting
@@ -251,7 +251,7 @@ Com o tempo, JavaScript evoluiu, tornando-se essencial para o desenvolvimento we
 >>   console.log(idade); // ReferenceError: Não é possível acessar 'idade' antes da inicialização
 >> 
 >>   let idade = 22;
->>   console.log(y); // 22
+>>   console.log(idade); // 22
 >> }
 >> example();
 >> ```
